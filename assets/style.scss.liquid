@@ -6,12 +6,13 @@
 
 $white: white;
 $hoverwhite: rgba(255,255,255,0.75);
+$hoverblack: rgba(0,0,0,0.75);
 $lightgray: rgba(250,251,253,1);
 $altgray: rgba(240,241,245,1);
 $strokegray: rgba(229,229,229,1);
 $typegray: rgba(172,173,176,1);
 $darkertype: rgba(110,113,116,1);
-$linkgray: rgba(153,153,156,1);
+$linkgray: rgba(163,163,166,1);
 $purple: rgba(120,68,133,1);
 $cartoverlaybg: rgba(0,0,0,0.9);
 $almostblack: rgba(75,75,75,1);
@@ -19,6 +20,10 @@ $dark: rgba(25,25,27,1);
 $black: black;
 
 $serif: "ff-meta-serif-web-pro", "Times New Roman", Times, serif;
+
+@mixin aa-text {
+  -webkit-font-smoothing: antialiased;
+}
 
 /* Base Styles */
 
@@ -35,7 +40,7 @@ html {
 
 body {
   font-size: 100%;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   width: 100%;
   height: auto;
   font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -111,7 +116,7 @@ a {
 }
 
 .purple {
-  color: $purple;
+  color: $purple !important;
 }
 
 .white {
@@ -220,7 +225,7 @@ a.btn {
 article {
   width: 66em;
   margin: 0 auto;
-  padding: 4em 3em;
+  padding: 3em 3em;
 }
 
 section,header,footer {
@@ -260,10 +265,10 @@ transition: right 0.15s ease-out;
 .index-header {
   position: relative;
   z-index: 3;
-  -webkit-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
-  -moz-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
-  -o-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
-  background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
+  -webkit-background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
+  -moz-background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
+  -o-background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
+  background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
   -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   -o-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
@@ -282,8 +287,9 @@ header article {
 
 header nav {
   font-size: 0.875em;
-  margin: 0.8em 0 0 0;
+  margin: 0.55em 0 0 0;
   float: right;
+  @include aa-text;
 }
 
 header nav a {
@@ -311,20 +317,24 @@ span.cart {
   }
   figure {
    display: inline-block;
-    background-color: $purple;
+    background-color: /*$purple*/ transparent;
+    border: 2px solid $linkgray;
     height: 2em;
     width: 2em;
-
     font-size: 90%;
-    line-height: 2em;
+    line-height: 1.7em;
     text-align: center;
     border-radius: 2em;
     margin: 0 0 0 0.5em;
-    color: white;
+    color: $linkgray;
     font-weight: 700;
     position: relative;
     z-index: 1;
-    top: -1px;
+    top: 0px;
+    -webkit-transition: border 0.35s ease-in, color 0.35s ease-in;
+    -moz-transition: border 0.35s ease-in, color 0.35s ease-in;
+    -o-transition: border 0.35s ease-in, color 0.35s ease-in;
+    transition: border 0.35s ease-in, color 0.35s ease-in;
     a {
       color: white;
     }
@@ -332,12 +342,20 @@ span.cart {
   }
 }
 
+.cart-circle-hovered {
+  border: 2px solid $black !important;
+}
+
+.cart-circle-span-hovered {
+  color: $black !important;
+}
+
 div.closebtn {
   text-indent: -9999px;
   position: absolute;
   display: none;
-  top: 0;
-  left: 0;
+  top: -2px;
+  left: -2px;
   background: $black url({{ 'closebtn_w.svg' | asset_url }}) no-repeat center center;
   width: 2em;
   border-radius: 1em;
@@ -396,7 +414,7 @@ footer nav ul li:last-child {
 }
   
 footer  h5 {
-    margin: 2em 0 0 0;
+    margin: 1.5em 0 0 0;
     font-size: 0.875em;
     letter-spacing: 0.1em;
     font-weight: 300;
@@ -658,32 +676,44 @@ section.products {
 }
 
 section.products a.product {
-  float: left;
-  width: 28em;
-  height: 28em;
-  margin: 0 4em 2em 0;
+  /*float: left;*/
+  display:block;
+  width: 100%;
+  height: auto;
+ /* margin: 0 4em 2em 0;*/
   position: relative;
-  &:nth-child(2n) {
+  /*&:nth-child(2n) {
     margin: 0 0 2em 0;
-  }
+  }*/
+}
+
+section.products a.product:first-child {
+  border-bottom: 1px solid $strokegray;
+}
+
+a.product img {
+  display: block;
+  margin: 0 auto;
 }
 
 .product-index-desc {
-  background: $hoverwhite;
+  background: $hoverblack;
   position: absolute;
   top: 0em;
   left: 0em;
   width: 100%;
   height: 100%;
-  padding: 10em 2em 2em;
+  padding: 12em 2em 2em;
   text-align: center;
   h3 {
+    color: $white;
     line-height: 1.5em;
   }
   h4 {
     color: $black;
     letter-spacing: 0.1em;
-    margin: 1em 0 0 0;
+    font-size: 0.625em;
+    margin: 0.35em 0 0 0;
     color: $darkertype;
   }
 }
@@ -1291,6 +1321,10 @@ div.cart-half {
   }
 }
 
+input.checkout {
+   font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
 // Empty Cart Styles
 
 section.cart-disp-empty {
@@ -1514,6 +1548,7 @@ section.copy {
       font-size: 1.05em;
       text-align: left;
       line-height: 1.625em;
+      @include aa-text;
   }
 }
 

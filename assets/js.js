@@ -9,6 +9,11 @@ $(document).ready(function(){
     $(this).children('div.desc').fadeToggle(150);
   });
 
+  $("span.cart").hover(function(e){
+      $(".counter").toggleClass("cart-circle-hovered");
+      $(".js-cart-counter").toggleClass("cart-circle-span-hovered");
+  });
+
   $("span.cart a").click(function(e){
     e.preventDefault();
     $("#product-cart").fadeToggle(200);
