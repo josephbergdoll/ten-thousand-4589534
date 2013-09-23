@@ -1,0 +1,77 @@
+<script type="text/javascript">
+
+App.product = {{ product | json }};
+
+var selectCallback = function(variant, selector) {
+  if (variant && variant.available == true) {
+    // selected a valid variant
+    jQuery('#purchase').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+    jQuery('#purchase').fadeIn();
+    jQuery('.price-field').html(Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}"));  // update price field
+  } else {
+    // variant doesn't exist
+    jQuery('#purchase').addClass('disabled').attr('disabled', 'disabled');      // set add-to-cart button to unavailable class and disable button
+    jQuery('#purchase').fadeOut();
+    var message = variant ? "Sold Out" : "We don't offer the product in this combination";
+    jQuery('.price-field').text(message); // update price-field message
+  }
+};
+
+
+// initialize multi selector for product
+var initMultiSelector = function() {
+  new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+   {% assign found_one_in_stock = false %}
+  {% for variant in product.variants %}
+    {% if variant.available and found_one_in_stock == false %}
+      {% assign found_one_in_stock = true %}
+      {% for option in product.options %}
+        jQuery('.single-option-selector:eq(' + {{ forloop.index0 }} + ')').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  $('#options div').addClass("selector-wrapper");
+  {% if product.options.size == 1 %}
+    $(".selector-wrapper").append("<label>{{ product.options.first }}</label>");
+  {% endif %}
+};
+
+var initSlideShow = function() {
+  $('.slideshow').flexslider({
+    controlsContainer: ".product-imgs",
+    animation: "fade",
+    slideshow: false,
+    animationSpeed: 700,
+    directionNav: false,
+    manualControls: "ol.slider-nav img"
+  });
+};
+
+var initColorVarientChanger = function () {
+  $('#add-product-form').on('change', '#product-select-option-0', function (e) {
+    var value = $(e.currentTarget).val();
+    $('.slider-nav').find('[alt="' + value + '"]').trigger('click');
+  });
+
+  $('.slider-nav').on('click', 'img', function (e) {
+    var alt = $(e.currentTarget).prop('alt');
+    $('#product-select-option-0').val(alt);
+  });
+};
+
+$(function() {
+  initMultiSelector();
+  initSlideShow();
+  initColorVarientChanger();
+
+  $('.zoombtn').on('click', function () {
+    $('.productfeature')[0].scrollIntoView();
+  });
+});
+
+/* New Add to Cart Animatino */
+
+
+
+
+</script>

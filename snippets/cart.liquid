@@ -1,0 +1,71 @@
+<section id="product-cart"></section>
+
+  <script type="text/html" id="cart-template">
+    <% if (item_count == 0) { %>
+
+    <section class="cart-disp-empty">
+      <article>
+        <h1>Your cart is empty</h1>
+        <p><a href="products/">Click here to check out our products</a></p>
+      </article>
+    </section>
+
+    <% } else { %>
+
+    <section class="cart-disp-full">
+      <article>
+
+        <div class="cart-contain">
+
+          <table border="0" cellspacing="0" cellpadding="0" class="shopcart">
+            <thead>
+              <tr class="first">
+                <th>&nbsp;</th>
+                <th class="td-quantity sm" scope="col">Qty.</th>
+                <th class="td-price sm" scope="col">Price</th>
+                <th class="td-remove sm" scope="col">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <% _.each(items, function(item) { %>
+            <tr class="js-cart-line-item" data-variant-id="<%= item.variant_id %>" data-quantity="<%= item.quantity %>">
+              <th class="td-name" scope="row"><%= item.title %></th>
+              <td class="td-quantity">
+                <a class="quantity-stepper js-change-quantity" data-direction="down" href="#">-</a>
+                  <%= item.quantity %>
+                <a class="quantity-stepper js-change-quantity" data-direction="up" href="#">+</a>
+              </td>
+              <td class="td-price"><%= Shopify.formatMoney(item.line_price) %></td>
+              <td class="td-remove"><a href="#" class="js-remove-line-item">x</a></td>
+            </tr>
+            <% }); %>
+
+            </tbody>
+          </table>
+
+        </div>
+        <div class="cart-actions">
+          <h3>Subtotal</h3>
+          <h2><%= Shopify.formatMoney(total_price) %></h2>
+
+          <form action="/cart/add" method="post">
+
+            {% comment %}quantity is 0 on purpose, items are already in cart{% endcomment %}
+            <input type="hidden" name="quantity" id="quantity" value="0"/>
+
+            <% _.each(items, function(item) { %>
+              <input type="hidden" name="id[]" value="<%= item.id %>" />
+            <% }); %>
+
+            <input type="hidden" name="return_to" value="/checkout" />
+            <input class="checkout" type="submit" value="Checkout" />
+          </form>
+
+        </div>
+        <div class="clear"></div>
+      </article>
+    </section>
+
+    <% } %>
+  </script>

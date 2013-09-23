@@ -1,0 +1,61 @@
+<section class="mainproduct">
+  <article class="clearfix">
+
+    <aside class="product-imgs">
+      <div class="zoombtn">
+        Zoom In
+      </div>
+
+      <div class="slideshow">
+        <ul class="slides">
+          {% for image in product.images %}
+            <li>
+              <img src="{{ image.src | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" />
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <ol class="slider-nav clearfix">
+        {% for image in product.images %}
+          <li>
+            <img src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" />
+          </li>
+        {% endfor %}
+      </ol>
+
+    </aside>
+
+    <aside class="productdesc third">
+      <h1 class="title">{{ product.title }}</h1>
+    <h1 class="purple">{{ product.price | money }}</h1>
+    <p>{{ product.description }}</p>
+
+    {% if product.available  %}
+      <form id="add-product-form" action="/cart/add" method="post" class="product-variants">
+        {% if product.variants.size > 1 %} {% comment %} If the product only has MULTIPLE OPTIONS {% endcomment %}
+
+          <figure id="options" class="colorsize">
+            <select id="product-select" name='id' name="color">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}">{{ variant.title }}</option>
+              {% endfor %}
+            </select>
+          </figure>
+
+          <div class="price-field"></div>
+
+        {% else %}
+          <!-- If the product only has ONE variant -->
+            <div class="price-field"> {{ product.price | money }}</div>
+            <input  type="hidden" id="{{ variant.id }}" name="id" value="{{ product.variants[0].id }}" /> <!-- passes variant id -->
+        {% endif %}
+        <input type="submit"  name="add" value="Add to cart" id="purchase" class="submitbutton js-add-product-to-cart" />
+      </form>
+
+    {% else %}
+      <p>This product is not available</p>
+    {% endif %}
+
+  </article>
+</section>

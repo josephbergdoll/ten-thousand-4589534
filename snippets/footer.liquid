@@ -1,0 +1,17 @@
+<footer>
+  <article>
+
+   {% if linklists.footer-left.links.size > 0 %}
+       <nav>
+        <ul>
+         {% for link in linklists.footer-left.links %}
+           <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+         {% endfor %}
+         </ul>
+       </nav>
+   {% endif %}
+
+   <h5 role="contentinfo">&copy; {{ shop.name }} Inc {{ "now" | date: "%Y" }}. All rights reserved.</h5>
+
+  </article>
+</footer>

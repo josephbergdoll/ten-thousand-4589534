@@ -1,0 +1,604 @@
+@font-face {
+    font-family: 'ars-maquette-web';
+    src: url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-bold-webfont.eot');
+    src: url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-bold-webfont.woff') format('woff'),
+         url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-bold-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ars-maquette-web';
+    src: url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-light-webfont.eot');
+    src: url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-light-webfont.woff') format('woff'),
+         url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-light-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ars-maquette-web';
+    src: url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-regular-webfont.eot');
+    src: url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-regular-webfont.woff') format('woff'),
+         url('http://www.osephj.com/varsity/10k/f/arsmaquettepro-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+/* Colors:
+
+Purple = rgba(120,68,133,1)
+Stroke Gray = rgba(229,229,229,1)
+Light Gray = rgba(250,251,253,1)
+Alt Gray = rgba(240,241,245,1)
+*/
+
+body {
+  font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,h1,h2,h3,h4,h5,input,span {
+  transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -webkit-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -moz-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -o-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  &:hover {
+      transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -webkit-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -moz-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -o-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    }
+}
+
+
+aside.billinginfo input, aside.shippinginfo input, aside.confirmationinfo input, aside.coupon input, aside.summary-final input {
+  padding: 1.25em 1em;
+  margin: 0 0 1em !important;
+}
+
+input[type=text], input[type=email] {
+  -webkit-appearance: none;
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  background: #e5e5e5;
+  padding: 1em;
+  font-family: "ars-maquette-web";
+  font-weight: 500;
+  margin: 0 0 0.625em 0;
+  font-size: 0.875em;
+  color: black;
+  border: 0;
+}
+
+#buttons input[type=submit] {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  color: white;
+  background: black;
+  border: 0;
+  padding: 2em;
+  font-family: "ARS Maquette Pro";
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.8em;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 1em;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+body, #info-bar, #addresses, #email, #buttons, #overview, #main  {
+  background: transparent;
+  border: 0 none;
+}
+
+#main, #header, #footer {
+  width: auto;
+}
+
+#header, #footer {
+  background-image: none;
+  padding: 50px 0px 30px
+}
+
+#footer {
+  margin-bottom: -20px;
+}
+
+#cancel-purchase {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+#products, #thumbs div {
+  border: 0 none;
+}
+
+.form ul.inline li {
+  margin-right: 0;
+}
+
+#tagline .title {
+  display: none;
+}
+
+#logo {
+background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/tenthoulogo.png?2363) no-repeat left center;
+text-indent: -9999px;
+display: block;
+height: 44px;
+background-size: contain;
+}
+
+.subtitle {
+  display: none;
+}
+
+#container {
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+}
+
+#logo {
+  width: 66em;
+  background-position: 3.5em center;
+  margin: 0 auto;
+}
+
+#main {
+  width: 66em;
+  padding: 3em;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #fafbfd;
+}
+
+#header, #footer, html {
+  background-color: white;
+}
+
+#info-bar {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  padding: 0.5em 1em;
+  color: white;
+  text-transform: uppercase;
+  background: black;
+  font-weight: 500;
+  width: 100%;
+  position: static;
+  top: 0;
+}
+
+#info-bar img {
+  display: none;
+}
+
+#products {
+  width: 63%;
+}
+
+#products h2 {
+ text-indent: -9999px;
+ font-size: 0.875em;
+ font-weight: 700;
+ text-align: center;
+ border-bottom: 1px solid black;
+ text-transform: uppercase;
+ letter-spacing: 0.2em;
+ padding: 0 0 1em 0;
+}
+
+#products h2:after {
+  content:"Your Order";
+  margin: -1.6em 0 0 0;
+  display: block;
+  text-indent: 0 !important;
+}
+
+#thumbs {
+  margin: 1.5em 0 0 0;
+}
+
+#thumbs td {
+  font-size: 100%;
+  width: 100%;
+  padding-bottom: 1.25em;
+  border-bottom: 1px solid rgba(229,229,229,1);
+}
+
+#thumbs td br {
+  display: none;
+}
+
+#thumbs div {
+  width: 4em;
+  height: 4em;
+}
+
+#thumbs div img {
+  width: 100%;
+  height: auto;
+}
+
+#thumbs h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: black;
+  padding: 0 0 0 5.25rem;
+}
+
+#thumbs span {
+  font-size: 0.875em;
+  color: #acadb0;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  display: block;
+  padding: 0 0 0 5.25rem;
+}
+
+#overview, #wallet, #content {
+  padding: 0;
+}
+
+
+#wallet {
+  width: 30%;
+  margin: 0 0 0 6%;
+  float: left;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+#cost:before {
+  content: "Subtotal";
+  display: block;
+  padding: 0 0 1em 0;
+  font-size: 0.875rem;
+  color: black;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0.35em 0 1.5rem;
+}
+
+#cost {
+  color: rgba(120,68,133,1);
+  font: 2em "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  width: 100%;
+}
+
+#wallet br {
+  display: none;
+}
+
+#overview .hint {
+  font-size: 0.875em;
+  color: #acadb0;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  font-style: normal;
+  line-height:1em;
+}
+
+#tax_span:after {
+  display: block;
+  content: ".";
+  text-indent: -9999px;
+  margin: 0 0 0.5em;
+}
+
+.wallet-highlight {
+  background: transparent !important;
+}
+
+#steps {
+  font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+#email {
+  padding: 0;
+  width: 64%;
+}
+
+#email input {
+width: 100%;
+font-size: 0.875em;
+}
+
+#email label {
+  font-size: 0.875em;
+  text-indent: -9999px;
+}
+
+#email label:after {
+  content:"Contact Email";
+  display: block;
+  text-indent: 0 !important;
+}
+
+.group {
+  padding: 0;
+  border-radius: none;
+  margin: 5em 0 0 0;
+  border: 0;
+  background: transparent;
+}
+
+label, #steps {
+  font-size: 0.875em;
+  margin-top: -0.3rem;
+  color: #acadb0;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  display: block;
+}
+
+#gateway-logos {
+  width: 32%;
+  margin: 3em 0 0 0;
+  padding: 0;
+  float: right;
+  text-align: center;
+}
+
+#content form {
+  margin: 2em 0 0 0;
+}
+
+#payment {
+  width: 47%;
+  float: left;
+}
+
+#payment p, #payment-method p {
+   font-size: 0.875em;
+  color: #acadb0;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  display: block;
+}
+
+#payment-method {
+  width: 47%;
+  float: left;
+  margin: 0 0 0 6%;
+}
+
+#payment h3, #payment-method h3 {
+ font-size: 0.875em;
+ font-weight: 700;
+ text-align: center;
+ border-bottom: 1px solid black;
+ text-transform: uppercase;
+ letter-spacing: 0.2em;
+ padding: 0 0 1em 0;
+}
+
+#payment-method h3 {
+  text-indent: -9999px;
+}
+
+#payment-method h3:after {
+  content:"Payment";
+  margin: -1.3em 0 0 0;
+  display: block;
+  text-indent: 0 !important;
+}
+
+#payment div.group, #payment-method div.group {
+  margin: 0;
+}
+
+.sst .gleft, .sst .gright {
+  width: 100% !important;
+}
+
+.sst .gright {
+  margin: 0 !important;
+}
+
+.gleft {
+  width: 47%;
+}
+
+.gright {
+  width: 47%;
+  padding-left: 0;
+  margin-left: 6%;
+  float: left;
+}
+
+.gright > h3, .gleft > h3 {
+  margin: 0 0 2em;
+  padding: 0 0 1em 0;
+  font-size: 0.875em;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.gleft > table, .gright > table {
+  width: 100%;
+}
+
+.form td {
+  display: block;
+  width: 100% !important;
+  padding: 0;
+}
+
+.form td.lbl {
+  width: 100% !important;
+  margin: 1em 0 0.5em;
+}
+
+.form td input.short, .form td input {
+  width: 100% !important;
+}
+
+.form tbody tr:nth-child(1), .form tbody tr:nth-child(2), .form tbody tr:nth-child(6), .form tbody tr:nth-child(7) {
+  width: 49% !important;
+  display: block !important;
+  float: left;
+}
+
+.form tbody tr:nth-child(2), .form tbody tr:nth-child(7) {
+  margin: 0 0 0 2%;
+}
+
+.form ul.inline li {
+  width: 49% !important;
+  float: left;
+}
+
+.form ul.inline li:first-child {
+  margin-right: 0 !important;
+}
+
+.form ul.inline li:last-child {
+  margin-right: 0 !important;
+  margin-left: 2%;
+}
+
+.form ul.inline li label {
+  margin: 1em 0 0.5em 0;
+}
+
+#billing-is-shipping {
+  margin: 1em 0 0 0;
+  display: block;
+}
+
+#billing-is-shipping input {
+  width: 15px !important;
+  height: 15px;
+  margin: 0 0.5em 0 0;
+}
+
+#billing-is-shipping label {
+  display: inline-block;
+}
+
+.address-notification {
+  /*background: #e5e5e5;*/
+  color: black;
+  background: none;
+  border: 1px solid rgba(229,229,229,1);
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  padding: 2em 3em;
+}
+
+div.field-with-errors {
+  background-color: transparent;
+  border: 1px solid #ff0000;
+}
+
+div.field-with-errors br {
+  display: none;
+}
+
+.field-with-errors .error-message {
+  display: block;
+    color: #ff0000;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.2em;
+  margin: 0.25em 0 0.25em 0.5em;
+}
+
+.field-with-errors .error-message:before {
+  content:"*";
+}
+
+ul#payment-methods label {
+  display: inline;
+}
+
+#credit-card-info td {
+  position: relative;
+}
+
+#credit-card-valid {
+  position: absolute;
+  left: 9.25em;
+  top: 2.32em;
+  z-index:3;
+}
+
+
+
+select {
+  -webkit-appearance: none;
+      width: 100% !important;
+      display: block;
+      border-radius: 0;
+      background: #e5e5e5 url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/arrow.png) 93% center no-repeat;
+      background-size: 12px 12px;
+      padding: 1em;
+      font-family: "ars-maquette-web";
+      text-transform: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: $black;
+      border: 0;
+}
+
+#buttons {
+  padding: 0;
+  margin: 4em 0 0 0;
+}
+
+input#commit-button {
+  padding: 2em 4em !important;
+}
+
+input#commit-button:hover {
+  background: rgba(120,68,133,1);
+}
+
+#cancel-purchase a:hover {
+  color: rgba(120,68,133,1);
+}
+
+::-webkit-input-placeholder {
+    color: rgba(172,173,176,1);
+  }

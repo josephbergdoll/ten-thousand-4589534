@@ -1,0 +1,90 @@
+{% include 'product-main' %}
+{% include 'product-main-js' %}
+
+<section class="productspotlights">
+
+  <article class="clearfix">
+    <aside class="third">
+      {% capture spotlight_image_1 %}{{ product.handle }}-spotlight-1.jpg{% endcapture %}
+      <figure class="spotlight-img">{{ spotlight_image_1 | asset_url | img_tag }}</figure>
+      <h3 class="purple">Materials</h3>
+      <p>{{ product.metafields.spotlight.description1 }}</p>
+    </aside>
+    <aside class="third">
+      {% capture spotlight_image_2 %}{{ product.handle }}-spotlight-2.jpg{% endcapture %}
+      <figure class="spotlight-img">{{ spotlight_image_2 | asset_url | img_tag }}</figure>
+      <h3 class="purple">Construction</h3>
+      <p>{{ product.metafields.spotlight.description2 }}</p>
+    </aside>
+    <aside class="third">
+      {% capture spotlight_image_3 %}{{ product.handle }}-spotlight-3.jpg{% endcapture %}
+      <figure class="spotlight-img">{{ spotlight_image_3 | asset_url | img_tag }}</figure>
+      <h3 class="purple">Design</h3>
+      <p>{{ product.metafields.spotlight.description3 }}</p>
+    </aside>
+  </article>
+
+  {% capture product_action_shot_image %}{{ product.handle }}-actionshot.jpg{% endcapture %}
+  <section class="product-actionshots" style="background-image: url({{ product_action_shot_image | asset_url }})">
+  <h1 class="action-desc">{{ product.metafields.actionshot.description }}</h1>
+</section>
+
+<section id="features" class="productfeature product-details">
+  <article>
+  <h2 class="product-subhead">Product Details</h2>
+    <ul class="details-list clearfix">
+      <li>Ripstop stitching</li>
+      <li>Heavy duty zippers</li>
+      <li>Lightweight polyester shell</li>
+      <li>Waterproof</li>
+      <li>Ripstop stitching</li>
+      <li>Heavy duty zippers</li>
+      <li>Lightweight polyester shell</li>
+      <li>Waterproof</li>
+      <li>Heavy duty zippers</li>
+      <li>Lightweight polyester shell</li>
+      <li>Waterproof</li>
+      
+    </ul>
+  </article>
+</section>
+
+
+</section>
+
+<div>
+  {% for i in (1..product.metafields.feature_images.count) %}
+  <section class="productfeature">
+    <article>
+      {% capture feature_image %}{{ product.handle }}-feature-{{i}}.png{% endcapture %}
+      {{ feature_image | asset_url | img_tag }}
+    </article>
+  </section>
+  {% endfor %}
+</div>
+
+<section class="productexplore">
+
+  <article>
+  <h2 class="product-subhead">More to Explore</h2>
+    <aside class="third">
+      <a href="#"> <figure>{{ 'shorts.png' | asset_url | img_tag }}</figure>
+      <h3>Board Short</h3></a>
+    </aside>
+    <aside class="third">
+      <a href="#"> <figure>{{ 'shorts.png' | asset_url | img_tag }}</figure>
+      <h3>Board Short</h3></a>
+    </aside>
+    <aside class="third">
+      <a href="#"> <figure>{{ 'shorts.png' | asset_url | img_tag }}</figure>
+      <h3>Board Short</h3></a>
+    </aside>
+
+    <div class="clear"></div>
+  </article>
+
+</section>
+
+<a class="scroll to-top" href="#top">
+Back To Top
+</a>

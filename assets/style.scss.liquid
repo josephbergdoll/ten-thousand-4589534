@@ -1,0 +1,1665 @@
+/* Ten Thousand */
+
+@import "reset.css";
+
+/* Variables */
+
+$white: white;
+$hoverwhite: rgba(255,255,255,0.75);
+$lightgray: rgba(250,251,253,1);
+$altgray: rgba(240,241,245,1);
+$strokegray: rgba(229,229,229,1);
+$typegray: rgba(172,173,176,1);
+$darkertype: rgba(110,113,116,1);
+$linkgray: rgba(153,153,156,1);
+$purple: rgba(120,68,133,1);
+$cartoverlaybg: rgba(0,0,0,0.9);
+$almostblack: rgba(75,75,75,1);
+$dark: rgba(25,25,27,1);
+$black: black;
+
+$serif: "ff-meta-serif-web-pro", "Times New Roman", Times, serif;
+
+/* Base Styles */
+
+body, html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background: $altgray;
+  }
+
+body {
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: auto;
+  font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: $black;
+  background: white;
+  &.template-index {
+  height: 100%;
+  }
+}
+
+::selection {
+  background: $black;
+  color: white;
+}
+
+::-moz-selection {
+  background: $black;
+  color: white;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+a,h1,h2,h3,h4,h5,span {
+  transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -webkit-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -moz-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -o-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  &:hover {
+      transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -webkit-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -moz-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -o-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    }
+}
+
+a.current {
+  color: $black;
+}
+
+div.clear {
+  clear:left;
+  height: 0;
+}
+
+div.clearright {
+  clear: both;
+  height: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+.purple {
+  color: $purple;
+}
+
+.white {
+  color: white;
+}
+
+.clearfix {
+  display: block;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+
+
+/* Type Styles */
+h1,h2,h3,h4,h5,p {
+  &.white {
+    color: white;
+  }
+  &.gray {
+    color: $linkgray;
+  }
+  &.notrack {
+    letter-spacing: normal;
+  }
+  &.inlineblock {
+    display: inline-block;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1em;
+}
+
+h2 {
+  font-size: 1.15em;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 0.875em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+h4 {
+  font-size: 0.75em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+h5 {
+
+}
+
+p {
+  color: $typegray;
+  line-height: 1.5em;
+}
+
+a.logo {
+  display: block;
+  width: 18em;
+  height: 2.25em;
+  background: url({{ 'tenthoulogo_lg.png' | asset_url }}) no-repeat center center;
+  background-size: 100%;
+  text-indent: -9999px;
+  float: left;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+a.btn {
+  display: table;
+  color: white;
+  background-color: $purple;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.9em 2em 1em;
+  border-radius: 10em;
+  margin: 0 auto;
+  cursor: pointer;
+  &:hover {
+    background: $black;
+  }
+}
+
+article {
+  width: 66em;
+  margin: 0 auto;
+  padding: 4em 3em;
+}
+
+section,header,footer {
+  width: 100%;
+}
+
+
+// Begin Header Styles
+
+a.to-top {
+  position: fixed;
+  padding: 16px 18px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  right: -128px;
+  top: 2em;
+  background: $dark;
+  width: 128px;
+  z-index: 100;
+  opacity: 1;
+  color: $typegray;
+  &:hover {
+    background: $almostblack;
+    color: $white;
+  }
+  &.slideright {
+    right: 0;
+  }
+  
+transition: right 0.15s ease-out;
+-webkit-transition: right 0.15s ease-out;
+  
+}
+
+.index-header {
+  position: relative;
+  z-index: 3;
+  -webkit-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
+  -moz-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
+  -o-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
+  background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  -o-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+
+}
+
+header {
+
+}
+
+header article {
+  padding: 2em 3em;
+}
+
+
+header nav {
+  font-size: 0.875em;
+  margin: 0.8em 0 0 0;
+  float: right;
+}
+
+header nav a {
+  display: inline-block;
+  margin: 0 3em 0 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: $linkgray;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 2px rgba(255,255,255,0.25);
+  &:hover {
+    color: $black;
+  }
+  &.current {
+    color: $black;
+  }
+}
+
+span.cart {
+  a {
+    margin: 0;
+    &.cartclicked {
+      color: $black;
+    }
+  }
+  figure {
+   display: inline-block;
+    background-color: $purple;
+    height: 2em;
+    width: 2em;
+
+    font-size: 90%;
+    line-height: 2em;
+    text-align: center;
+    border-radius: 2em;
+    margin: 0 0 0 0.5em;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    top: -1px;
+    a {
+      color: white;
+    }
+
+  }
+}
+
+div.closebtn {
+  text-indent: -9999px;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  background: $black url({{ 'closebtn_w.svg' | asset_url }}) no-repeat center center;
+  width: 2em;
+  border-radius: 1em;
+  height: 2em;
+  background-size: 75%;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in;
+  &:hover {
+    background-color: rgba(65,65,65,1);
+    transition: background-color 0.1s ease-out;
+  }
+}
+
+// End Header Styles
+
+
+
+// Begin Footer Styles
+
+footer {
+  padding: 1em 3em 5em;
+  text-transform: uppercase;
+  background: white url({{ 'xlogo.png' | asset_url }}) no-repeat center 8.35em;
+  background-size: 20px 20px;
+}
+
+footer article {
+    padding: 1.5em 0em 4em;
+    width: 60em;
+    border-top: 1px solid $strokegray;
+}
+
+
+footer nav {
+  text-align: center;
+}
+footer nav a {
+    font-size: 0.875em;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    color: $typegray;
+    line-height: 1.85em;
+    white-space: nowrap;
+    &:hover {
+      color: $black;
+    }
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 2.5rem 0 0;
+}
+
+footer nav ul li:last-child {
+  margin: 0;
+}
+  
+footer  h5 {
+    margin: 2em 0 0 0;
+    font-size: 0.875em;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    color: $typegray;
+    text-align: center;
+}
+
+
+// End Footer Styles
+
+
+
+// Begin Homepage Styles
+
+/* Browser Resets */
+.flex-container a:active, .slideshow a:active, .flex-container a:focus, .slideshow a:focus {
+  outline: none;
+}
+
+.slides, .flex-control-nav, .flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+
+.slideshow {
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden; /* Hide the slides before the JS is loaded. Avoids image jumping */
+}
+.slideshow .slides img {
+  width: 100%;
+  display: block;
+}
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+.slides:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+html[xmlns] .slides {
+  display: block;
+}
+
+* html .slides {
+  height: 1%;
+}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {
+  display: block;
+}
+
+section.hero {
+  position: relative;
+  margin: -100px 0 0 0;
+  height: 85%;
+}
+
+div.slideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slides {
+  li.one {
+    background: url({{ 'hero.jpg' | asset_url }}) center 25%;
+  }
+  li.two {
+   background: url({{ 'bridgerun.jpg' | asset_url }}) center 80%;
+  }
+  li.three {
+    background: url({{ 'mission2.jpg' | asset_url }}) center center;
+  }
+}
+
+section.hero {
+
+  ul.slides {
+    width: 100%;
+    height: 100%;
+    li {
+      width: 100%;
+      height: 100%;
+      background-size: cover !important;
+    }
+  }
+}
+
+div.outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding: 50px 0 0 0;
+}
+
+section.hero div.outer h1 {
+  display: table-cell;
+  font-size: 575%;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+ul.flex-direction-nav {
+  position: absolute;
+  z-index:3;
+  width: 95%;
+  top: 50%;
+  left: 2.5%;
+}
+
+.flex-direction-nav li {
+  width: 60px;
+  height: 60px;
+}
+
+.flex-direction-nav a {
+  font-size: 48px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  line-height: 60px;
+  cursor: pointer;
+  color: $white;
+  opacity: 0.5;
+  text-shadow: 0 0 1px $black;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.flex-direction-nav:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+
+}
+
+.flex-direction-nav li:first-child {
+  float: left;
+}
+
+.flex-direction-nav li:last-child {
+  float: right;
+}
+
+.pager {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.pager ol {
+  position: absolute;
+  bottom: 24px;
+  z-index: 2;
+  width: 100%;
+}
+
+.pager ol li {
+    display: inline-block;
+  margin: 0 10px 0 0;
+}
+
+.pager ol li:last-child {
+  margin: 0;
+}
+
+.pager ol li a {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255,255,255,0.6);
+  text-indent: -999999px;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  -moz-transition: all 0.15s ease-in;
+}
+
+.pager ol li ra:hover {
+  background-color: rgba(255,255,255,1);
+}
+
+.pager a.flex-active {
+  background-color: rgba(255,255,255,1);
+}
+
+aside.third {
+  width: 33%;
+  float: left;
+}
+
+
+section.homepage {
+  background: $white;
+  article {
+    padding: 4em 3em;
+  }
+}
+
+section.homepage aside.third {
+    height: 21em;
+    padding: 3em 3em;
+    border-right: 1px solid $strokegray;
+    &:nth-child(3) {
+    border-right: none;
+    }
+    h2 {
+      text-align: center;
+      margin: 1em 0 0em 0;
+    }
+    h3 {
+      text-align: center;
+      margin: 0 0 2.25em 0;
+      color: $typegray;
+    }
+    p {
+      font-size: 0.875em;
+      text-align: center;
+      line-height: 1.5em;
+      margin: 2em 0 3em 0;
+      font-family: $serif;
+    }
+}
+
+// End Homepage Styles
+
+
+
+// Begin Product Index Styles
+
+section.products {
+  border-top: 1px solid $strokegray;
+}
+
+section.products a.product {
+  float: left;
+  width: 28em;
+  height: 28em;
+  margin: 0 4em 2em 0;
+  position: relative;
+  &:nth-child(2n) {
+    margin: 0 0 2em 0;
+  }
+}
+
+.product-index-desc {
+  background: $hoverwhite;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  height: 100%;
+  padding: 10em 2em 2em;
+  text-align: center;
+  h3 {
+    line-height: 1.5em;
+  }
+  h4 {
+    color: $black;
+    letter-spacing: 0.1em;
+    margin: 1em 0 0 0;
+    color: $darkertype;
+  }
+}
+
+// End Product Index Styles
+
+
+// Begin individual Product Page Styles
+
+section.mainproduct {
+  background: $lightgray;
+  border-bottom: 1px solid $strokegray;
+}
+
+.zoombtn {
+  text-indent: -9999px;
+  position: absolute;
+  top: 1em;
+  right: 0;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 2em;
+  border: 2px solid $black;
+  opacity: 0.25;
+  background: transparent url({{ 'zoombtn_k.svg' | asset_url }}) center center no-repeat;
+  background-size: 75% 75%;
+  z-index: 3;
+  cursor: pointer;
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+aside.product-imgs {
+  width: 50%;
+  margin: 0 12% 0 0;
+  float: left;
+  position: relative;
+}
+
+ol.slider-nav {
+  display: table;
+  margin: 0 auto;
+  li {
+    display: block;
+    cursor: pointer;
+    width: 7em;
+    width: 7em;
+    float: left;
+    padding: 1em;
+    border: 1px solid $strokegray;
+    margin: 0 0.5em 0 0;
+    &:hover {
+      border: 1px solid $typegray;
+    }
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+h1.title {
+  padding: 0 0 0.6em 0;
+  border-bottom: 1px solid $strokegray;
+  margin: 0 0 0.6em 0;
+}
+
+section.product-actionshots {
+  height: 40em;
+  background: url({{ 'actionshot.jpg' | asset_url }}) no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 17em 0 0 0;
+}
+
+
+.action-desc {
+ margin: 0 auto;
+  color: $white;
+  text-align: center;
+  display: table;
+  padding: 1em 2em;
+}
+
+section.mainproduct p {
+  margin: 2em 0;
+  line-height: 1.6em;
+  font-size: 0.875em;
+}
+
+figure.colorsize {
+  width: 100%;
+  padding: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  background: $strokegray url({{ 'arrow.png' | asset_url }}) 93% center no-repeat;
+  background-size: 12px 12px;
+  padding: 1em;
+  font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.875em;
+  color: $black;
+  border: 0;
+  cursor: pointer;
+}
+
+section.mainproduct select {
+  margin: 0 0 0.625em 0;
+}
+
+.submitbutton {
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+      color: white;
+      background: $black;
+      border: 0;
+      padding: 2em;
+      font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size:0.8em;
+      text-align: center;
+      letter-spacing: 1px;
+      cursor: pointer;
+      &:hover {
+        background: $purple;
+      }
+      &.centered {
+          width: 13rem;
+          margin: 1.25em auto 2rem;
+        }
+        &.apply {
+          width: 6rem;
+          padding: 1em;
+        }
+      &.completepurchase {
+      width: 20rem;
+        margin: 4rem auto 3rem;
+      }
+
+    }
+
+section.productspotlights  aside.third {
+    padding: 0 3em;
+    p {
+      margin: 1em 0;
+      font-size: 0.875em;
+      line-height: 1.5em;
+    }
+}
+
+.productdesc p, .productspotlights p, .productfeature p {
+  font-family: $serif;
+}
+
+h2.product-subhead {
+    text-align: center;
+    color: $typegray;
+    font-weight: 300;
+    margin: 0 0 1.75em 0;
+    font-size: 125%;
+}
+
+.details-list {
+  display: table;
+  margin: 3em auto 0 auto;
+  color: $typegray;
+  padding: 2em 0;
+  border-top: 1px solid $strokegray;
+  border-bottom: 1px solid $strokegray;
+  li {
+    display: list-item;
+    padding: 1em 1em;
+    font-size: 0.875em;
+    font-family: $serif;
+     background: $lightgray;
+    width: 25em;
+    float: left;
+    margin: 0.5em 0 0;
+    position: relative;
+  }
+}
+
+.details-list li:nth-child(odd) {
+  clear: both;
+  margin: 0.5em 3em 0 0;
+}
+
+figure.spotlight-img {
+  width: 14em;
+  height: 14em;
+  margin: 0 auto 2em;
+  border-radius: 7em;
+  overflow: hidden;
+  img {
+    max-width: 150%;
+    margin-left: -100px;
+  }
+}
+
+
+section.productfeature {
+  article {
+    padding: 5em 3em;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  &.black {
+    background-color: $black;
+  }
+  &.dark {
+    background-color: $dark;
+  }
+  &.gray {
+  background-color: $lightgray;
+    p {
+      color: $linkgray;
+    }
+  }
+}
+
+section.productfeature article {
+    display: table;
+  }
+
+section.productfeature  aside.third {
+  text-align: center;
+  &.left {
+    margin: 6em 11em 0 4em;
+  }
+  &.right {
+    margin: 6em 4em 0 11em;
+  }
+}
+
+h1.product-feature-headline {
+  margin: 0 0 1em 0;
+  font-size: 125%;
+  font-weight: 300;
+}
+
+figure.feature-img {
+    width: 25em;
+    height: 25em;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $black;
+    float: left;
+    img {
+      max-width: 200%;
+    }
+}
+
+
+section.productexplore {
+  aside.third {
+    width: 18em;
+    margin: 0 3em 0 0;
+    &:nth-child(4) {
+      margin: 0;
+    }
+  }
+}
+
+section.productexplore a {
+      display: table;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: $linkgray;
+      &:hover {
+        color: $black;
+      }
+      h3 {
+        margin: 1.5em auto 2.25em;
+        -webkit-transition: color 0.15s ease-in;
+      }
+}
+
+
+
+// End Individual Product Page Styles
+
+// Begin Checkout Page Styles
+
+section.checkout-page {
+  background: $lightgray;
+}
+
+div.checkout-opts {
+  margin: 5em 0 1em;
+}
+
+
+section.checkout-page h3 {
+  margin: 4em 0 2em;
+  padding: 0 0 1em 0;
+  font-weight: 700;
+  border-bottom: 1px solid $black;
+  text-align: center;
+}
+
+aside.login {
+  padding: 0 5em;
+  border-right: 1px solid $strokegray;
+}
+
+aside.guest {
+  padding: 0 5em;
+}
+
+aside.login, aside.guest {
+  display: block;
+  margin: 3em 0 4em;
+  width: 50%;
+  float: left;
+
+  h1 {
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin: 0 0 1em 0;
+  }
+  a.submitbutton {
+    margin: 1.6em 0 0;
+  }
+}
+
+aside.login h4 {
+  margin: 1em 0 0 0;
+  color: $linkgray;
+  a {
+    color: $linkgray;
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+
+input.textbox {
+  -webkit-appearance: none;
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  background: $strokegray;
+  padding: 1em;
+  font-family: "ARS Maquette Pro";
+  font-weight: 500;
+  margin: 0 0 0.625em 0;
+  font-size: 0.875em;
+  color: $black;
+  border: 0;
+}
+::-webkit-input-placeholder {
+  text-transform: uppercase;
+}
+:-moz-placeholder {
+  text-transform: uppercase;
+}
+::-moz-placeholder {
+  text-transform: uppercase;;
+}
+:-ms-input-placeholder {
+  text-transform: uppercase;;
+}
+
+
+/* Purchase Steps */
+
+ol.purchase-steps {
+  li.purchase-step {
+    width: 25%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid $strokegray;
+    &:last-child {
+      border-right: none;
+    }
+    &.completed {
+      opacity: 0.55;
+      border-right: 1px solid rgba(0,0,0,0.15);
+    }
+    &.next {
+      opacity: 0.1;
+      border-right: 1px solid $linkgray;
+    }
+  }
+  span.stepnum {
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    background: $black;
+    color: white;
+    text-shadow: 0 0 1px rbga(255,255,255,0.1);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: baseline;
+    display: inline-block;
+  }
+  span.stepname {
+    display: block;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px rbga(0,0,0,0.1);
+    letter-spacing: 0.1em;
+    font-size: 0.825em;
+    line-height: 2em;
+  }
+
+}
+
+aside.billinginfo, aside.shippinginfo, aside.confirmationinfo, aside.coupon, aside.summary-final {
+  width: 45%;
+  padding: 0.75em 0 0 0;
+  float: left;
+  input {
+    padding: 1.25em 1em;
+    margin: 0 0 1em !important;
+  }
+  select {
+    &.one {
+      margin: 0 3% 1em 0;
+    }
+    &.exp {
+      width: 48%;
+      display: inline-block;
+    }
+  }
+  input.discountcode {
+    margin: 1em 0;
+  }
+  p {
+    font-size: 0.75em;
+    margin: 0 0 0.5em;
+    color: $typegray;
+    text-transform: uppercase;
+  }
+}
+
+
+div.select-shipping {
+  margin: 1.5em 0 0;
+}
+
+/* Order Summary */
+
+div.order-summary {
+  h3 {
+    margin: 0.25em 0 1em;
+    color: $typegray;
+    border-bottom: 1px solid $strokegray;
+  }
+
+  li.cart-total {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    margin: 0 0 0.5em 0;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-size: 0.75em;
+  }
+
+  span.total-name {
+    float: left;
+    margin: 0 0 0 90px;
+    font-size: 0.875rem;
+    vertical-align: baseline;
+  }
+
+  span.total-num {
+    color: $black;
+    float: right;
+    font-size: 1rem;
+    vertical-align: baseline;
+  }
+
+  p.purchase-total {
+    margin: 0 0 0.75em;
+  }
+
+  p.final-total {
+    border-top: 1px solid $strokegray;
+    padding: 0.75em 0 0;
+    margin: 1em 0 0;
+  }
+
+  p.final-total span.total-num {
+    font-weight: 700;
+  }
+
+  li.cart-product {
+    border-bottom: 1px solid $strokegray;
+    padding: 0.5em 1em;
+    margin: 0 0 0.5em 0;
+  }
+
+  figure.cart-product-img {
+    width: 65px;
+    height: 65px;
+    float: left;
+  }
+
+  p.cart-product-detail {
+     float: left;
+     line-height: 1.5em;
+     margin: 0.75rem 0 0 1.5rem;
+     }
+     span.name {
+       font-weight: 700;
+       font-size: 0.875rem;
+       display: block;
+       color: $black;
+     }
+
+     span.quantity {
+       margin: 0 0.5rem 0 0;
+       text-transform: none;
+     }
+
+     p.price {
+       font-size: 1rem;
+       float: right;
+       text-align: right;
+     }
+}
+
+
+/* Closed div.order-summary */
+
+
+aside.summary-final {
+  padding: 0 !important;
+}
+
+aside.billinginfo, aside.shippinginfo, aside.confirmationinfo {
+  margin: 0 10% 0 0;
+}
+
+p.secure-transactions {
+  margin: 1em 0 0 !important;
+}
+
+aside.order-completed {
+  width: 100%;
+  background: white;
+  border: 1px solid $strokegray;
+  padding: 6em 15% 8em;
+  margin: 3em auto 2em;
+  h2.productordered {
+    border-bottom: 1px solid $black;
+    padding: 1em 0 0.75em;
+  }
+  span.ordernumber {
+      font-weight: 600;
+      color: $linkgray;
+    }
+  p.success {
+    margin: 2em 0 0 0;
+  }
+  a.account {
+    margin: 2rem 0;
+    padding: 1.5em;
+  }
+}
+
+div.cart-half {
+  width: 48%;
+  float: left;
+  &.half-first {
+    margin: 0 4% 0 0;
+  }
+}
+
+// End Checkout Page Styles
+
+
+
+// Cart Styles
+#product-cart {
+  display: none;
+  z-index: 5;
+  background: $cartoverlaybg;
+  position: absolute;
+  top: 100px;
+  color: white;
+
+  .quantity-stepper {
+    color: darken($white, 35%);
+    padding: 10px;
+
+    &:hover { color: $white; }
+  }
+}
+
+// Empty Cart Styles
+
+section.cart-disp-empty {
+     article {
+      padding: 8em 3em;
+      position: relative;
+      text-align: center;
+     }
+     h1 {
+       font-weight: 300;
+       letter-spacing: 0.2em;
+     }
+     p {
+       margin: 0.5em 0 0 0;
+     }
+     a {
+       color: $darkertype;
+       &:hover {
+         color:white;
+       }
+     }
+
+}
+
+
+// Full Cart Styles
+
+section.cart-disp-full {
+  article {
+    padding: 3em 3em 4em;
+    position: relative;
+    * {
+      box-sizing: content-box;
+    }
+  }
+}
+
+div.cart-contain {
+  width: 40em;
+  float: left;
+}
+
+table.shopcart {
+  border-collapse: collapse;
+  width: 100%;
+  text-transform: uppercase;
+  margin: 0 0 1em 0;
+
+  tr {
+    border-bottom: 1px solid white;
+  }
+
+  thead {
+    font-size: 75%;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .td-name {
+    text-align: left;
+    padding: 20px 0;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  .td-quantity, .td-price, .td-remove {
+    text-align: center;
+    padding: 20px 0;
+    &.sm {
+      padding: 10px 0;
+    }
+  }
+
+  .td-remove a {
+    display: block;
+    text-indent: -9999px;
+    width: 1.1em;
+    border-radius: 1em;
+    height: 1.1em;
+    margin: 0 auto;
+    background: url({{ 'closebtn_w.svg' | asset_url }}) center center no-repeat;
+    &:hover {
+      background-color: $almostblack;
+    }
+  }
+
+  .td-quantity {
+    width: 80px;
+  }
+
+  .td-price {
+    width: 150px;
+  }
+
+  .td-remove {
+    width: 90px;
+  }
+}
+  /* Closed Shop Cart */
+
+  div.cart-actions {
+    width: 20em;
+    float: left;
+    box-sizing: border-box !important;
+    padding: 0.625em 0 0 3em;
+    text-align: center;
+    * {
+      box-sizing: border-box;
+    }
+    h3 {
+      color: $linkgray;
+    }
+    h2 {
+      margin: 0.25em auto 0.75em;
+      font-size: 2.25em;
+      padding: 0 0 0.15em;
+      display: table;
+      border-bottom: 2px solid white;
+      font-weight: 300;
+    }
+    .checkout {
+      border: 0 none;
+      display: table;
+      margin: 0 auto;
+      color: white;
+      background: $darkertype;
+      padding: 1em 3em 1.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      font-size: 0.813em;
+      &:hover {
+        background-color: $purple;
+      }
+
+    }
+  }
+
+  /* Confirmation */
+
+  div.conf-contain {
+    float: left;
+  }
+
+  div.conf-contain:first-child {
+    margin: 0 3em 0 0;
+    padding: 0 3em 0 0;
+    border-right: 1px solid $strokegray;
+  }
+
+  aside.confirmationinfo span {
+    display: block;
+    font-size: 0.875em;
+    line-height: 1.5em;
+  }
+
+  figure.cc-icon {
+    width: 3em;
+    height: 2em;
+    display: inline-block;
+    margin: 0 0.25em 0 0;
+  }
+
+  aside.confirmationinfo a {
+  display: block;
+  color: $linkgray;
+  &:hover {
+    color: $black;
+  }
+   margin: 1.5em 0 0 0;
+    font-size: 0.75em;
+    text-transform: uppercase;
+  }
+
+
+
+// End Shopping Cart Styles
+
+
+// Begin Mission Page Styles
+
+section.mission {
+  height: 30em;
+  background-size: cover;
+  border-top: 1px solid $strokegray;
+  border-bottom: 1px solid $strokegray;
+  article {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.mission-one {
+  background: url({{ 'bridge4.jpg' | asset_url }}) no-repeat center 30%;
+  padding: 65px 0 0 0;
+  height: 40em !important;
+}
+
+.mission-two {
+  background: url({{ 'bridge6.jpg' | asset_url }}) no-repeat center 85%;
+}
+
+
+.mission-three {
+  background: url({{ 'bridge7.jpg' | asset_url }}) no-repeat center 30%;
+}
+
+.mission-hero {
+    font-size: 400%;
+    line-height: 1.125em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+section.copy {
+  background: white;
+  p {
+    font-family: "ff-meta-serif-web-pro";
+      font-size: 1.05em;
+      text-align: left;
+      line-height: 1.625em;
+  }
+}
+
+.mission-points {
+  margin: 4em 0;
+}
+
+section.copy aside.third {
+padding: 2em 3em;
+    border-right: 1px solid $strokegray;
+    &:nth-child(3) {
+    border-right: none;
+    }
+    h2 {
+      text-align: center;
+      margin: 0 0 1em 0;
+    }
+    h3 {
+      text-align: center;
+      margin: 0 0 2.25em 0;
+    }
+    p {
+      
+      margin: 2em 0 0.5em 0;
+    }
+
+}
+
+.p-single-col {
+  width: 55%;
+  margin: 0 auto 1em;
+}
+
+.mission-highlight-img, .mission-highlight-img-2, .mission-highlight-copy {
+  width: 50%;
+  float: left;
+  min-height: 20em;
+}
+
+.mission-highlight {
+  margin: 5em 0;
+}
+
+.mission-highlight-img {
+  background: url({{ 'bridge4.jpg' | asset_url }}) no-repeat center center;
+  background-size: cover;
+}
+
+.mission-highlight-img-2 {
+  background: url({{ 'bridge6.jpg' | asset_url }}) no-repeat center center;
+  background-size: cover;
+}
+
+
+
+.mission-highlight-copy {
+  padding: 3em;
+  h1 {
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 1.05em;
+    font-weight: 500;
+    margin: 0 0 0.5em;
+  }
+}
+
+
+
+// End Missoin Page Styles
+
+
+
+// Begin Static Page Styles
+
+section.static-copy {
+  border-top: 1px solid $strokegray;
+  h1 {
+    text-align: center;
+    margin: 0 auto 2em;
+  }
+  h4 {
+     font-weight: 600;
+     position: relative;
+     margin: 4em 0 -1.35em 0;
+     color: $darkertype;
+     width: 20%;
+     line-height: 1.25em;
+   &.sub {
+    width: 55%;
+    margin: 1em auto 0.25em;
+    }
+  }
+  p {
+  width: 55%;
+  margin: 0 auto 2em;
+  color: $darkertype;
+    &.secondary {
+      font-size: 0.813em;
+      margin: 0 auto 1em;
+    }
+  }
+  figure {
+    margin: 3em auto;
+    width: 2em;
+    height: 2em;
+  }
+  ul {
+    list-style-type:disc;
+    width: 55%;
+    margin: 0 auto 1em;;
+    li {
+     font-size: 0.813em;
+      margin: 0 0 0 2em;
+      color: $darkertype;
+      line-height: 1.25em;
+    }
+  }
+}
+
+
+
+// Begin Journal Page Styles
+
+section.journal {
+  border-top: 1px solid $strokegray;
+}
+
+a.entry {
+  display: block;
+  max-width: 18em;
+  height: auto;
+  margin: 0 0 36px 0;
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+}
+
+
+div.gutter-sizer {
+  width: 36px;
+  margin: 0 !important;
+}
+
+// hack to hide what Shopify JS generates
+.product-variants {
+  label, .price-field { display: none; }
+}
+

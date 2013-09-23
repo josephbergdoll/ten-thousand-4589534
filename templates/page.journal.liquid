@@ -1,0 +1,56 @@
+<section class="journal">
+  <article>
+  <div id="journalcontainer">
+      <div class="grid-sizer">&nbsp;</div>
+    <div class="gutter-sizer">&nbsp;</div>
+    <a class="entry w2">
+      <img src="{{ 'bridge1.jpg' | asset_url }}" alt="bridge1">
+    </a>
+     <a class="entry w1">
+      <img src="{{ 'bridge2.jpg' | asset_url }}" alt="bridge2">
+    </a>
+     <a class="entry w2">
+      <img src="{{ 'bridge3.jpg' | asset_url }}" alt="bridge3">
+    </a>
+     <a class="entry w2">
+      <img src="{{ 'bridge4.jpg' | asset_url }}" alt="bridge4">
+    </a>
+     <a class="entry w2">
+      <img src="{{ 'bridge5.jpg' | asset_url }}" alt="bridge1">
+    </a>
+     <a class="entry w1">
+      <img src="{{ 'bridge6.jpg' | asset_url }}" alt="bridge1">
+    </a>
+      <a class="entry w2">
+      <img src="{{ 'bridge1.jpg' | asset_url }}" alt="bridge1">
+    </a>
+     <a class="entry w1">
+      <img src="{{ 'bridge2.jpg' | asset_url }}" alt="bridge2">
+    </a>
+     <a class="entry w2">
+      <img src="{{ 'bridge3.jpg' | asset_url }}" alt="bridge3">
+    </a>
+     <a class="entry w2">
+      <img src="{{ 'bridge4.jpg' | asset_url }}" alt="bridge4">
+    </a>
+     <a class="entry w2">
+      <img src="{{ 'bridge5.jpg' | asset_url }}" alt="bridge1">
+    </a>
+     <a class="entry w1">
+      <img src="{{ 'bridge6.jpg' | asset_url }}" alt="bridge1">
+    </a>
+
+  </div>
+  </article>
+</section>
+
+<script>
+$(window).load(function() {
+         var $container = $('div#journalcontainer');
+        $container.masonry({
+            itemSelector: ".entry",
+            gutter: ".gutter-sizer",
+            transitionDuration: "0.2s"
+        });
+    });
+</script>
