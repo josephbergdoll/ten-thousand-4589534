@@ -174,6 +174,7 @@ h3 {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  @include aa-text;
 }
 
 h4 {
@@ -214,9 +215,9 @@ a.btn {
   font-weight: 600;
   letter-spacing: 0.1em;
   padding: 0.9em 2em 1em;
-  border-radius: 10em;
   margin: 0 auto;
   cursor: pointer;
+  @include aa-text;
   &:hover {
     background: $black;
   }
@@ -488,7 +489,7 @@ html[xmlns] .slides {
 section.hero {
   position: relative;
   margin: -100px 0 0 0;
-  height: 85%;
+  height: 800px;
 }
 
 div.slideshow {
@@ -499,13 +500,16 @@ div.slideshow {
 
 .slides {
   li.one {
-    background: url({{ 'hero.jpg' | asset_url }}) center 25%;
+    background: url({{ 'startmovement.jpg' | asset_url }}) center bottom;
   }
   li.two {
-   background: url({{ 'bridgerun.jpg' | asset_url }}) center 80%;
+   background: url({{ 'falls.jpg' | asset_url }}) center top;
   }
   li.three {
-    background: url({{ 'mission2.jpg' | asset_url }}) center center;
+    background: url({{ 'bridgerun.jpg' | asset_url }}) center center;
+  }
+  li.four {
+    background: url({{ 'loop.jpg' | asset_url }}) center center;
   }
 }
 
@@ -655,6 +659,7 @@ section.homepage aside.third {
       text-align: center;
       margin: 0 0 2.25em 0;
       color: $typegray;
+      @include aa-text;
     }
     p {
       font-size: 0.875em;
@@ -662,6 +667,7 @@ section.homepage aside.third {
       line-height: 1.5em;
       margin: 2em 0 3em 0;
       font-family: $serif;
+      @include aa-text;
     }
 }
 
@@ -799,12 +805,22 @@ section.product-actionshots {
 }
 
 section.mainproduct p {
-  margin: 2em 0;
+  margin: 2em 0 1em;
   line-height: 1.6em;
   font-size: 0.875em;
 }
 
+section.mainproduct ul {
+  list-style-type: disc;
+  font-size: 0.875em;
+  font-family: $serif;
+  line-height: 1.6em;
+  color: $typegray;
+  @include aa-text;
+}
+
 figure.colorsize {
+  margin: 1.25em 0 0 0;
   width: 100%;
   padding: 0;
 }
@@ -865,6 +881,9 @@ section.mainproduct select {
 
 section.productspotlights  aside.third {
     padding: 0 3em;
+    h3 {
+      text-align: center;
+    }
     p {
       margin: 1em 0;
       font-size: 0.875em;
@@ -874,6 +893,7 @@ section.productspotlights  aside.third {
 
 .productdesc p, .productspotlights p, .productfeature p {
   font-family: $serif;
+  @include aa-text;
 }
 
 h2.product-subhead {
@@ -897,6 +917,7 @@ h2.product-subhead {
     font-size: 0.875em;
     font-family: $serif;
      background: $lightgray;
+     @include aa-text;
     width: 25em;
     float: left;
     margin: 0.5em 0 0;

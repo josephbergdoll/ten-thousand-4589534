@@ -29,7 +29,7 @@
     <aside class="productdesc third">
       <h1 class="title">{{ product.title }}</h1>
     <h1 class="purple">{{ product.price | money }}</h1>
-    <p>{{ product.description }}</p>
+    
 
     {% if product.available  %}
       <form id="add-product-form" action="/cart/add" method="post" class="product-variants">
@@ -56,6 +56,14 @@
     {% else %}
       <p>This product is not available</p>
     {% endif %}
+
+    <p>{{ product.description }}</p>
+    <ul>
+      <li>Nullam id dolor id nibh ultricies vehicula ut id elit</li>
+      <li>Nullam quis risus eget urna mollis ornare vel eu leo</li>
+      <li>Vestibulum id ligula porta felis euismod semper</li>
+    </ul>
+   </aside>
 
   </article>
 </section>

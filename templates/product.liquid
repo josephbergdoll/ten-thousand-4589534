@@ -7,19 +7,19 @@
     <aside class="third">
       {% capture spotlight_image_1 %}{{ product.handle }}-spotlight-1.jpg{% endcapture %}
       <figure class="spotlight-img">{{ spotlight_image_1 | asset_url | img_tag }}</figure>
-      <h3 class="purple">Materials</h3>
+      <h3 class="purple">Fabric</h3>
       <p>{{ product.metafields.spotlight.description1 }}</p>
     </aside>
     <aside class="third">
       {% capture spotlight_image_2 %}{{ product.handle }}-spotlight-2.jpg{% endcapture %}
       <figure class="spotlight-img">{{ spotlight_image_2 | asset_url | img_tag }}</figure>
-      <h3 class="purple">Construction</h3>
+      <h3 class="purple">Design</h3>
       <p>{{ product.metafields.spotlight.description2 }}</p>
     </aside>
     <aside class="third">
       {% capture spotlight_image_3 %}{{ product.handle }}-spotlight-3.jpg{% endcapture %}
       <figure class="spotlight-img">{{ spotlight_image_3 | asset_url | img_tag }}</figure>
-      <h3 class="purple">Design</h3>
+      <h3 class="purple">Construction</h3>
       <p>{{ product.metafields.spotlight.description3 }}</p>
     </aside>
   </article>
