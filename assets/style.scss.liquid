@@ -171,10 +171,10 @@ h2 {
 
 h3 {
   font-size: 0.875em;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  @include aa-text;
+  /*@include aa-text;*/
 }
 
 h4 {
@@ -262,7 +262,7 @@ transition: right 0.15s ease-out;
 -webkit-transition: right 0.15s ease-out;
   
 }
-
+/*
 .index-header {
   position: relative;
   z-index: 3;
@@ -274,15 +274,15 @@ transition: right 0.15s ease-out;
   -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   -o-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-
 }
+*/
 
 header {
 
 }
 
 header article {
-  padding: 2em 3em;
+  padding: 4em 3em;
 }
 
 
@@ -295,7 +295,7 @@ header nav {
 
 header nav a {
   display: inline-block;
-  margin: 0 3em 0 0;
+  margin: 0 2em 0 0;
   text-transform: uppercase;
   font-weight: 500;
   color: $linkgray;
@@ -320,6 +320,7 @@ span.cart {
    display: inline-block;
     background-color: /*$purple*/ transparent;
     border: 2px solid $linkgray;
+    text-indent: 1px;
     height: 2em;
     width: 2em;
     font-size: 90%;
@@ -358,9 +359,9 @@ div.closebtn {
   top: -2px;
   left: -2px;
   background: $black url({{ 'closebtn_w.svg' | asset_url }}) no-repeat center center;
-  width: 2em;
+  width: 1.95em;
   border-radius: 1em;
-  height: 2em;
+  height: 1.95em;
   background-size: 75%;
   cursor: pointer;
   transition: background-color 0.5s ease-in;
@@ -407,7 +408,7 @@ footer nav a {
 
 footer ul li {
   display: inline-block;
-  margin: 0 2.5rem 0 0;
+  margin: 0 2.35rem 0 0;
 }
 
 footer nav ul li:last-child {
@@ -487,9 +488,7 @@ html[xmlns] .slides {
 }
 
 section.hero {
-  position: relative;
-  margin: -100px 0 0 0;
-  height: 800px;
+  height: 75%;
 }
 
 div.slideshow {
@@ -530,15 +529,14 @@ div.outer {
   display: table;
   width: 100%;
   height: 100%;
-  padding: 50px 0 0 0;
 }
 
 section.hero div.outer h1 {
   display: table-cell;
-  font-size: 575%;
+  font-size: 300%;
   text-align: center;
   letter-spacing: 0.1em;
-  font-weight: 500;
+  font-weight: 700;
   vertical-align: middle;
 }
 
@@ -548,6 +546,7 @@ ul.flex-direction-nav {
   width: 95%;
   top: 50%;
   left: 2.5%;
+  margin: -24px 0 0 0;
 }
 
 .flex-direction-nav li {
@@ -604,7 +603,10 @@ ul.flex-direction-nav {
 
 .pager ol li {
     display: inline-block;
-  margin: 0 10px 0 0;
+  margin: 0 16px 0 0;
+  width: 10px;
+  height: 10px;
+  position: relative;
 }
 
 .pager ol li:last-child {
@@ -615,20 +617,30 @@ ul.flex-direction-nav {
   display: block;
   width: 8px;
   height: 8px;
-  background-color: rgba(255,255,255,0.6);
+  border-radius: 20px;
+  background-color: rgba(255,255,255,1);
   text-indent: -999999px;
+  border: 0px solid transparent;
   cursor: pointer;
-  transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  -moz-transition: all 0.15s ease-in;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  -webkit-transition: all 0.05s ease-in;
+  transition: all 0.05s ease-in;
+
 }
 
-.pager ol li ra:hover {
-  background-color: rgba(255,255,255,1);
-}
+/*.pager ol li a:hover {
+  background-color: rgba(255,255,255,0.75);
+}*/
 
 .pager a.flex-active {
-  background-color: rgba(255,255,255,1);
+  background-color: transparent;
+  border: 1px solid $white;
+  width: 11px;
+  height: 11px;
+  top: 0;
+  left: 0px;
 }
 
 aside.third {
@@ -659,7 +671,6 @@ section.homepage aside.third {
       text-align: center;
       margin: 0 0 2.25em 0;
       color: $typegray;
-      @include aa-text;
     }
     p {
       font-size: 0.875em;
@@ -677,8 +688,9 @@ section.homepage aside.third {
 
 // Begin Product Index Styles
 
-section.products {
+section.products article {
   border-top: 1px solid $strokegray;
+  padding: 0 3em;
 }
 
 section.products a.product {
@@ -697,20 +709,26 @@ section.products a.product:first-child {
   border-bottom: 1px solid $strokegray;
 }
 
+a.product {
+  padding: 3em 0;
+}
+
 a.product img {
   display: block;
   margin: 0 auto;
+  width: 75%;
 }
 
 .product-index-desc {
   background: $hoverblack;
+  margin: -7.5em 0 0 -7.5em;
   position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  height: 100%;
-  padding: 12em 2em 2em;
-  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 15em;
+  height: 15em;
+  padding: 5.5em 0 0;
+text-align: center;
   h3 {
     color: $white;
     line-height: 1.5em;
@@ -1035,12 +1053,12 @@ section.productexplore a {
   z-index: 5;
   background: $cartoverlaybg;
   position: absolute;
-  top: 100px;
+  top: 164px;
   color: white;
 
   .quantity-stepper {
-    color: darken($white, 35%);
-    padding: 10px;
+    color: $linkgray;
+    padding: 5px;
 
     &:hover { color: $white; }
   }
@@ -1100,7 +1118,7 @@ table.shopcart {
 
   thead {
     font-size: 75%;
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 0.1em;
   }
 
@@ -1116,6 +1134,9 @@ table.shopcart {
     padding: 20px 0;
     &.sm {
       padding: 10px 0;
+      color: $linkgray;
+      font-weight: 400;
+      letter-spacing: 0.1em;
     }
   }
 
@@ -1243,7 +1264,6 @@ section.mission {
 
 .mission-one {
   background: url({{ 'bridge4.jpg' | asset_url }}) no-repeat center 30%;
-  padding: 65px 0 0 0;
   height: 40em !important;
 }
 
@@ -1257,7 +1277,8 @@ section.mission {
 }
 
 .mission-hero {
-    font-size: 400%;
+    font-size: 300%;
+    font-weight: 700;
     line-height: 1.125em;
     display: table-cell;
     vertical-align: middle;

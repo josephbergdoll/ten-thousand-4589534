@@ -6,12 +6,13 @@
 
 $white: white;
 $hoverwhite: rgba(255,255,255,0.75);
+$hoverblack: rgba(0,0,0,0.75);
 $lightgray: rgba(250,251,253,1);
 $altgray: rgba(240,241,245,1);
 $strokegray: rgba(229,229,229,1);
 $typegray: rgba(172,173,176,1);
 $darkertype: rgba(110,113,116,1);
-$linkgray: rgba(153,153,156,1);
+$linkgray: rgba(163,163,166,1);
 $purple: rgba(120,68,133,1);
 $cartoverlaybg: rgba(0,0,0,0.9);
 $almostblack: rgba(75,75,75,1);
@@ -19,6 +20,10 @@ $dark: rgba(25,25,27,1);
 $black: black;
 
 $serif: "ff-meta-serif-web-pro", "Times New Roman", Times, serif;
+
+@mixin aa-text {
+  -webkit-font-smoothing: antialiased;
+}
 
 /* Base Styles */
 
@@ -35,7 +40,7 @@ html {
 
 body {
   font-size: 100%;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   width: 100%;
   height: auto;
   font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -111,7 +116,7 @@ a {
 }
 
 .purple {
-  color: $purple;
+  color: $purple !important;
 }
 
 .white {
@@ -169,6 +174,7 @@ h3 {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  @include aa-text;
 }
 
 h4 {
@@ -190,7 +196,7 @@ a.logo {
   display: block;
   width: 18em;
   height: 2.25em;
-  background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/tenthoulogo_lg.png?7109) no-repeat center center;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/tenthoulogo_lg.png?8600) no-repeat center center;
   background-size: 100%;
   text-indent: -9999px;
   float: left;
@@ -209,9 +215,9 @@ a.btn {
   font-weight: 600;
   letter-spacing: 0.1em;
   padding: 0.9em 2em 1em;
-  border-radius: 10em;
   margin: 0 auto;
   cursor: pointer;
+  @include aa-text;
   &:hover {
     background: $black;
   }
@@ -220,7 +226,7 @@ a.btn {
 article {
   width: 66em;
   margin: 0 auto;
-  padding: 4em 3em;
+  padding: 3em 3em;
 }
 
 section,header,footer {
@@ -256,39 +262,40 @@ transition: right 0.15s ease-out;
 -webkit-transition: right 0.15s ease-out;
   
 }
-
+/*
 .index-header {
   position: relative;
   z-index: 3;
-  -webkit-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
-  -moz-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
-  -o-background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
-  background: linear-gradient(rgba(255,255,255,0.95) 0px,rgba(255,255,255,0.85) 85px);
+  -webkit-background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
+  -moz-background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
+  -o-background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
+  background: linear-gradient(rgba(255,255,255,0.90) 0px,rgba(255,255,255,0.75) 85px);
   -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   -o-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-
 }
+*/
 
 header {
 
 }
 
 header article {
-  padding: 2em 3em;
+  padding: 4em 3em;
 }
 
 
 header nav {
   font-size: 0.875em;
-  margin: 0.8em 0 0 0;
+  margin: 0.55em 0 0 0;
   float: right;
+  @include aa-text;
 }
 
 header nav a {
   display: inline-block;
-  margin: 0 3em 0 0;
+  margin: 0 2em 0 0;
   text-transform: uppercase;
   font-weight: 500;
   color: $linkgray;
@@ -311,20 +318,25 @@ span.cart {
   }
   figure {
    display: inline-block;
-    background-color: $purple;
+    background-color: /*$purple*/ transparent;
+    border: 2px solid $linkgray;
+    text-indent: 1px;
     height: 2em;
     width: 2em;
-
     font-size: 90%;
-    line-height: 2em;
+    line-height: 1.7em;
     text-align: center;
     border-radius: 2em;
     margin: 0 0 0 0.5em;
-    color: white;
+    color: $linkgray;
     font-weight: 700;
     position: relative;
     z-index: 1;
-    top: -1px;
+    top: 0px;
+    -webkit-transition: border 0.35s ease-in, color 0.35s ease-in;
+    -moz-transition: border 0.35s ease-in, color 0.35s ease-in;
+    -o-transition: border 0.35s ease-in, color 0.35s ease-in;
+    transition: border 0.35s ease-in, color 0.35s ease-in;
     a {
       color: white;
     }
@@ -332,16 +344,24 @@ span.cart {
   }
 }
 
+.cart-circle-hovered {
+  border: 2px solid $black !important;
+}
+
+.cart-circle-span-hovered {
+  color: $black !important;
+}
+
 div.closebtn {
   text-indent: -9999px;
   position: absolute;
   display: none;
-  top: 0;
-  left: 0;
-  background: $black url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?7109) no-repeat center center;
-  width: 2em;
+  top: -2px;
+  left: -2px;
+  background: $black url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?8600) no-repeat center center;
+  width: 1.95em;
   border-radius: 1em;
-  height: 2em;
+  height: 1.95em;
   background-size: 75%;
   cursor: pointer;
   transition: background-color 0.5s ease-in;
@@ -360,7 +380,7 @@ div.closebtn {
 footer {
   padding: 1em 3em 5em;
   text-transform: uppercase;
-  background: white url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/xlogo.png?7109) no-repeat center 8.35em;
+  background: white url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/xlogo.png?8600) no-repeat center 8.35em;
   background-size: 20px 20px;
 }
 
@@ -388,7 +408,7 @@ footer nav a {
 
 footer ul li {
   display: inline-block;
-  margin: 0 2.5rem 0 0;
+  margin: 0 2.35rem 0 0;
 }
 
 footer nav ul li:last-child {
@@ -396,7 +416,7 @@ footer nav ul li:last-child {
 }
   
 footer  h5 {
-    margin: 2em 0 0 0;
+    margin: 1.5em 0 0 0;
     font-size: 0.875em;
     letter-spacing: 0.1em;
     font-weight: 300;
@@ -468,9 +488,7 @@ html[xmlns] .slides {
 }
 
 section.hero {
-  position: relative;
-  margin: -100px 0 0 0;
-  height: 85%;
+  height: 75%;
 }
 
 div.slideshow {
@@ -481,13 +499,16 @@ div.slideshow {
 
 .slides {
   li.one {
-    background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/hero.jpg?7109) center 25%;
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/startmovement.jpg?8600) center bottom;
   }
   li.two {
-   background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridgerun.jpg?7109) center 80%;
+   background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/falls.jpg?8600) center top;
   }
   li.three {
-    background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/mission2.jpg?7109) center center;
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridgerun.jpg?8600) center center;
+  }
+  li.four {
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/loop.jpg?8600) center center;
   }
 }
 
@@ -508,15 +529,14 @@ div.outer {
   display: table;
   width: 100%;
   height: 100%;
-  padding: 50px 0 0 0;
 }
 
 section.hero div.outer h1 {
   display: table-cell;
-  font-size: 575%;
+  font-size: 300%;
   text-align: center;
   letter-spacing: 0.1em;
-  font-weight: 500;
+  font-weight: 700;
   vertical-align: middle;
 }
 
@@ -526,6 +546,7 @@ ul.flex-direction-nav {
   width: 95%;
   top: 50%;
   left: 2.5%;
+  margin: -24px 0 0 0;
 }
 
 .flex-direction-nav li {
@@ -582,7 +603,10 @@ ul.flex-direction-nav {
 
 .pager ol li {
     display: inline-block;
-  margin: 0 10px 0 0;
+  margin: 0 16px 0 0;
+  width: 10px;
+  height: 10px;
+  position: relative;
 }
 
 .pager ol li:last-child {
@@ -593,20 +617,30 @@ ul.flex-direction-nav {
   display: block;
   width: 8px;
   height: 8px;
-  background-color: rgba(255,255,255,0.6);
+  border-radius: 20px;
+  background-color: rgba(255,255,255,1);
   text-indent: -999999px;
+  border: 0px solid transparent;
   cursor: pointer;
-  transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  -moz-transition: all 0.15s ease-in;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  -webkit-transition: all 0.05s ease-in;
+  transition: all 0.05s ease-in;
+
 }
 
-.pager ol li ra:hover {
-  background-color: rgba(255,255,255,1);
-}
+/*.pager ol li a:hover {
+  background-color: rgba(255,255,255,0.75);
+}*/
 
 .pager a.flex-active {
-  background-color: rgba(255,255,255,1);
+  background-color: transparent;
+  border: 1px solid $white;
+  width: 11px;
+  height: 11px;
+  top: 0;
+  left: 0px;
 }
 
 aside.third {
@@ -637,6 +671,7 @@ section.homepage aside.third {
       text-align: center;
       margin: 0 0 2.25em 0;
       color: $typegray;
+      @include aa-text;
     }
     p {
       font-size: 0.875em;
@@ -644,6 +679,7 @@ section.homepage aside.third {
       line-height: 1.5em;
       margin: 2em 0 3em 0;
       font-family: $serif;
+      @include aa-text;
     }
 }
 
@@ -653,37 +689,56 @@ section.homepage aside.third {
 
 // Begin Product Index Styles
 
-section.products {
+section.products article {
   border-top: 1px solid $strokegray;
+  padding: 0 3em;
 }
 
 section.products a.product {
-  float: left;
-  width: 28em;
-  height: 28em;
-  margin: 0 4em 2em 0;
+  /*float: left;*/
+  display:block;
+  width: 100%;
+  height: auto;
+ /* margin: 0 4em 2em 0;*/
   position: relative;
-  &:nth-child(2n) {
+  /*&:nth-child(2n) {
     margin: 0 0 2em 0;
-  }
+  }*/
+}
+
+section.products a.product:first-child {
+  border-bottom: 1px solid $strokegray;
+}
+
+a.product {
+  padding: 3em 0;
+}
+
+a.product img {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
 }
 
 .product-index-desc {
-  background: $hoverwhite;
+  background: $hoverblack;
+  margin: -7.5em 0 0 -7.5em;
   position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  height: 100%;
-  padding: 10em 2em 2em;
-  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 15em;
+  height: 15em;
+  padding: 5.5em 0 0;
+text-align: center;
   h3 {
+    color: $white;
     line-height: 1.5em;
   }
   h4 {
     color: $black;
     letter-spacing: 0.1em;
-    margin: 1em 0 0 0;
+    font-size: 0.625em;
+    margin: 0.35em 0 0 0;
     color: $darkertype;
   }
 }
@@ -708,7 +763,7 @@ section.mainproduct {
   border-radius: 2em;
   border: 2px solid $black;
   opacity: 0.25;
-  background: transparent url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/zoombtn_k.svg?7109) center center no-repeat;
+  background: transparent url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/zoombtn_k.svg?8600) center center no-repeat;
   background-size: 75% 75%;
   z-index: 3;
   cursor: pointer;
@@ -753,7 +808,7 @@ h1.title {
 
 section.product-actionshots {
   height: 40em;
-  background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/actionshot.jpg?7109) no-repeat;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/actionshot.jpg?8600) no-repeat;
   background-size: cover;
   position: relative;
   padding: 17em 0 0 0;
@@ -769,12 +824,22 @@ section.product-actionshots {
 }
 
 section.mainproduct p {
-  margin: 2em 0;
+  margin: 2em 0 1em;
   line-height: 1.6em;
   font-size: 0.875em;
 }
 
+section.mainproduct ul {
+  list-style-type: disc;
+  font-size: 0.875em;
+  font-family: $serif;
+  line-height: 1.6em;
+  color: $typegray;
+  @include aa-text;
+}
+
 figure.colorsize {
+  margin: 1.25em 0 0 0;
   width: 100%;
   padding: 0;
 }
@@ -784,7 +849,7 @@ select {
   width: 100%;
   display: block;
   border-radius: 0;
-  background: $strokegray url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/arrow.png?7109) 93% center no-repeat;
+  background: $strokegray url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/arrow.png?8600) 93% center no-repeat;
   background-size: 12px 12px;
   padding: 1em;
   font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -835,6 +900,9 @@ section.mainproduct select {
 
 section.productspotlights  aside.third {
     padding: 0 3em;
+    h3 {
+      text-align: center;
+    }
     p {
       margin: 1em 0;
       font-size: 0.875em;
@@ -844,6 +912,7 @@ section.productspotlights  aside.third {
 
 .productdesc p, .productspotlights p, .productfeature p {
   font-family: $serif;
+  @include aa-text;
 }
 
 h2.product-subhead {
@@ -867,6 +936,7 @@ h2.product-subhead {
     font-size: 0.875em;
     font-family: $serif;
      background: $lightgray;
+     @include aa-text;
     width: 25em;
     float: left;
     margin: 0.5em 0 0;
@@ -976,302 +1046,6 @@ section.productexplore a {
 
 // End Individual Product Page Styles
 
-// Begin Checkout Page Styles
-
-section.checkout-page {
-  background: $lightgray;
-}
-
-div.checkout-opts {
-  margin: 5em 0 1em;
-}
-
-
-section.checkout-page h3 {
-  margin: 4em 0 2em;
-  padding: 0 0 1em 0;
-  font-weight: 700;
-  border-bottom: 1px solid $black;
-  text-align: center;
-}
-
-aside.login {
-  padding: 0 5em;
-  border-right: 1px solid $strokegray;
-}
-
-aside.guest {
-  padding: 0 5em;
-}
-
-aside.login, aside.guest {
-  display: block;
-  margin: 3em 0 4em;
-  width: 50%;
-  float: left;
-
-  h1 {
-    font-size: 1em;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    margin: 0 0 1em 0;
-  }
-  a.submitbutton {
-    margin: 1.6em 0 0;
-  }
-}
-
-aside.login h4 {
-  margin: 1em 0 0 0;
-  color: $linkgray;
-  a {
-    color: $linkgray;
-    &:hover {
-      color: $black;
-    }
-  }
-}
-
-
-input.textbox {
-  -webkit-appearance: none;
-  width: 100%;
-  display: block;
-  border-radius: 0;
-  background: $strokegray;
-  padding: 1em;
-  font-family: "ARS Maquette Pro";
-  font-weight: 500;
-  margin: 0 0 0.625em 0;
-  font-size: 0.875em;
-  color: $black;
-  border: 0;
-}
-::-webkit-input-placeholder {
-  text-transform: uppercase;
-}
-:-moz-placeholder {
-  text-transform: uppercase;
-}
-::-moz-placeholder {
-  text-transform: uppercase;;
-}
-:-ms-input-placeholder {
-  text-transform: uppercase;;
-}
-
-
-/* Purchase Steps */
-
-ol.purchase-steps {
-  li.purchase-step {
-    width: 25%;
-    float: left;
-    text-align: center;
-    border-right: 1px solid $strokegray;
-    &:last-child {
-      border-right: none;
-    }
-    &.completed {
-      opacity: 0.55;
-      border-right: 1px solid rgba(0,0,0,0.15);
-    }
-    &.next {
-      opacity: 0.1;
-      border-right: 1px solid $linkgray;
-    }
-  }
-  span.stepnum {
-    width: 22px;
-    height: 22px;
-    text-align: center;
-    line-height: 22px;
-    background: $black;
-    color: white;
-    text-shadow: 0 0 1px rbga(255,255,255,0.1);
-    font-size: 0.75em;
-    font-weight: 700;
-    vertical-align: baseline;
-    display: inline-block;
-  }
-  span.stepname {
-    display: block;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-shadow: 0 0 1px rbga(0,0,0,0.1);
-    letter-spacing: 0.1em;
-    font-size: 0.825em;
-    line-height: 2em;
-  }
-
-}
-
-aside.billinginfo, aside.shippinginfo, aside.confirmationinfo, aside.coupon, aside.summary-final {
-  width: 45%;
-  padding: 0.75em 0 0 0;
-  float: left;
-  input {
-    padding: 1.25em 1em;
-    margin: 0 0 1em !important;
-  }
-  select {
-    &.one {
-      margin: 0 3% 1em 0;
-    }
-    &.exp {
-      width: 48%;
-      display: inline-block;
-    }
-  }
-  input.discountcode {
-    margin: 1em 0;
-  }
-  p {
-    font-size: 0.75em;
-    margin: 0 0 0.5em;
-    color: $typegray;
-    text-transform: uppercase;
-  }
-}
-
-
-div.select-shipping {
-  margin: 1.5em 0 0;
-}
-
-/* Order Summary */
-
-div.order-summary {
-  h3 {
-    margin: 0.25em 0 1em;
-    color: $typegray;
-    border-bottom: 1px solid $strokegray;
-  }
-
-  li.cart-total {
-    font-size: 1rem;
-    padding: 0.5em 1em;
-    margin: 0 0 0.5em 0;
-  }
-
-  p {
-    text-transform: uppercase;
-    font-size: 0.75em;
-  }
-
-  span.total-name {
-    float: left;
-    margin: 0 0 0 90px;
-    font-size: 0.875rem;
-    vertical-align: baseline;
-  }
-
-  span.total-num {
-    color: $black;
-    float: right;
-    font-size: 1rem;
-    vertical-align: baseline;
-  }
-
-  p.purchase-total {
-    margin: 0 0 0.75em;
-  }
-
-  p.final-total {
-    border-top: 1px solid $strokegray;
-    padding: 0.75em 0 0;
-    margin: 1em 0 0;
-  }
-
-  p.final-total span.total-num {
-    font-weight: 700;
-  }
-
-  li.cart-product {
-    border-bottom: 1px solid $strokegray;
-    padding: 0.5em 1em;
-    margin: 0 0 0.5em 0;
-  }
-
-  figure.cart-product-img {
-    width: 65px;
-    height: 65px;
-    float: left;
-  }
-
-  p.cart-product-detail {
-     float: left;
-     line-height: 1.5em;
-     margin: 0.75rem 0 0 1.5rem;
-     }
-     span.name {
-       font-weight: 700;
-       font-size: 0.875rem;
-       display: block;
-       color: $black;
-     }
-
-     span.quantity {
-       margin: 0 0.5rem 0 0;
-       text-transform: none;
-     }
-
-     p.price {
-       font-size: 1rem;
-       float: right;
-       text-align: right;
-     }
-}
-
-
-/* Closed div.order-summary */
-
-
-aside.summary-final {
-  padding: 0 !important;
-}
-
-aside.billinginfo, aside.shippinginfo, aside.confirmationinfo {
-  margin: 0 10% 0 0;
-}
-
-p.secure-transactions {
-  margin: 1em 0 0 !important;
-}
-
-aside.order-completed {
-  width: 100%;
-  background: white;
-  border: 1px solid $strokegray;
-  padding: 6em 15% 8em;
-  margin: 3em auto 2em;
-  h2.productordered {
-    border-bottom: 1px solid $black;
-    padding: 1em 0 0.75em;
-  }
-  span.ordernumber {
-      font-weight: 600;
-      color: $linkgray;
-    }
-  p.success {
-    margin: 2em 0 0 0;
-  }
-  a.account {
-    margin: 2rem 0;
-    padding: 1.5em;
-  }
-}
-
-div.cart-half {
-  width: 48%;
-  float: left;
-  &.half-first {
-    margin: 0 4% 0 0;
-  }
-}
-
-// End Checkout Page Styles
-
 
 
 // Cart Styles
@@ -1280,7 +1054,7 @@ div.cart-half {
   z-index: 5;
   background: $cartoverlaybg;
   position: absolute;
-  top: 100px;
+  top: 164px;
   color: white;
 
   .quantity-stepper {
@@ -1371,7 +1145,7 @@ table.shopcart {
     border-radius: 1em;
     height: 1.1em;
     margin: 0 auto;
-    background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?7109) center center no-repeat;
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?8600) center center no-repeat;
     &:hover {
       background-color: $almostblack;
     }
@@ -1412,6 +1186,7 @@ table.shopcart {
       font-weight: 300;
     }
     .checkout {
+      font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
       border: 0 none;
       display: table;
       margin: 0 auto;
@@ -1424,6 +1199,7 @@ table.shopcart {
       font-size: 0.813em;
       &:hover {
         background-color: $purple;
+        cursor: pointer;
       }
 
     }
@@ -1485,22 +1261,22 @@ section.mission {
 }
 
 .mission-one {
-  background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?7109) no-repeat center 30%;
-  padding: 65px 0 0 0;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?8600) no-repeat center 30%;
   height: 40em !important;
 }
 
 .mission-two {
-  background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?7109) no-repeat center 85%;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?8600) no-repeat center 85%;
 }
 
 
 .mission-three {
-  background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge7.jpg?7109) no-repeat center 30%;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge7.jpg?8600) no-repeat center 30%;
 }
 
 .mission-hero {
-    font-size: 400%;
+    font-size: 300%;
+    font-weight: 700;
     line-height: 1.125em;
     display: table-cell;
     vertical-align: middle;
@@ -1514,6 +1290,7 @@ section.copy {
       font-size: 1.05em;
       text-align: left;
       line-height: 1.625em;
+      @include aa-text;
   }
 }
 
@@ -1558,12 +1335,12 @@ padding: 2em 3em;
 }
 
 .mission-highlight-img {
-  background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?7109) no-repeat center center;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?8600) no-repeat center center;
   background-size: cover;
 }
 
 .mission-highlight-img-2 {
-  background: url(http://cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?7109) no-repeat center center;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?8600) no-repeat center center;
   background-size: cover;
 }
 

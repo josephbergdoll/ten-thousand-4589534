@@ -45,7 +45,6 @@ Alt Gray = rgba(240,241,245,1)
 
 body {
   font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
 a,h1,h2,h3,h4,h5,input,span {
@@ -124,6 +123,11 @@ body, #info-bar, #addresses, #email, #buttons, #overview, #main  {
   margin-bottom: -20px;
 }
 
+#footer p {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 #cancel-purchase {
   margin-top: 10px;
   display: block;
@@ -136,6 +140,10 @@ body, #info-bar, #addresses, #email, #buttons, #overview, #main  {
 
 .form ul.inline li {
   margin-right: 0;
+}
+
+#tagline {
+  display: none;
 }
 
 #tagline .title {
@@ -164,6 +172,7 @@ background-size: contain;
   width: 66em;
   background-position: 3.5em center;
   margin: 0 auto;
+  position: relative;
 }
 
 #main {
@@ -247,6 +256,7 @@ body {
 
 #thumbs h3 {
   font-size: 1rem;
+  letter-spacing: 0.1em;
   font-weight: 700;
   text-transform: uppercase;
   color: black;
