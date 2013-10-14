@@ -209,7 +209,7 @@ a.logo {
 a.btn {
   display: table;
   color: white;
-  background-color: $purple;
+  background-color: $black;
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: 600;
@@ -219,14 +219,14 @@ a.btn {
   cursor: pointer;
   @include aa-text;
   &:hover {
-    background: $black;
+    background: $purple;
   }
 }
 
 article {
-  width: 66em;
+  width: 63em;
   margin: 0 auto;
-  padding: 3em 3em;
+  padding: 3em 1.5em;
 }
 
 section,header,footer {
@@ -250,6 +250,8 @@ a.to-top {
   z-index: 100;
   opacity: 1;
   color: $typegray;
+  transition: right 0.15s ease-out;
+-webkit-transition: right 0.15s ease-out;
   &:hover {
     background: $almostblack;
     color: $white;
@@ -257,10 +259,6 @@ a.to-top {
   &.slideright {
     right: 0;
   }
-  
-transition: right 0.15s ease-out;
--webkit-transition: right 0.15s ease-out;
-  
 }
 /*
 .index-header {
@@ -1078,6 +1076,9 @@ section.cart-disp-empty {
      }
      p {
        margin: 0.5em 0 0 0;
+       letter-spacing: 0.1em;
+       text-transform: uppercase;
+       font-size: 0.875em;
      }
      a {
        color: $darkertype;
@@ -1326,6 +1327,54 @@ padding: 2em 3em;
   margin: 0 auto 1em;
 }
 
+.values-list {
+  width: 92%;
+  font-weight: 700;
+  margin: 2em auto;
+  font-weight: 300;
+  padding: 0 0 0 2em;
+}
+
+.values-list li {
+  margin: 0 auto 2.625em auto;
+  padding: 0 0 0.5em;
+  display: table;
+  color: $typegray;
+  border-bottom: 1px solid $strokegray;
+  text-align: center;
+}
+
+.values-list li:last-child {
+  margin: 0 auto !important;
+}
+
+.values-list li figure {
+  display: inline-block;
+  border: 2px solid $typegray;
+    text-indent: 1px;
+    height: 2em;
+    width: 2em;
+    font-size: 65%;
+    line-height: 1.7em;
+    text-align: center;
+    border-radius: 2em;
+    margin: -0.5em 0 0 0;
+    color: $typegray;
+    font-weight: 700;
+    position: relative;
+    top: -6px;
+}
+
+.values-list li span{
+  font-family: $serif;
+  font-size: 2em;
+  color: $darkertype;
+  @include aa-text;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0 0 0 0.25em;
+}
+
 .mission-highlight-img, .mission-highlight-img-2, .mission-highlight-copy {
   width: 50%;
   float: left;
@@ -1368,47 +1417,19 @@ padding: 2em 3em;
 // Begin Static Page Styles
 
 section.static-copy {
-  border-top: 1px solid $strokegray;
+  article {
+    border-top: 1px solid $strokegray;
+  }
   h1 {
     text-align: center;
-    margin: 0 auto 2em;
-  }
-  h4 {
-     font-weight: 600;
-     position: relative;
-     margin: 4em 0 -1.35em 0;
-     color: $darkertype;
-     width: 20%;
-     line-height: 1.25em;
-   &.sub {
-    width: 55%;
-    margin: 1em auto 0.25em;
-    }
+    margin: 0 auto 1.5em;
   }
   p {
-  width: 55%;
-  margin: 0 auto 2em;
-  color: $darkertype;
-    &.secondary {
-      font-size: 0.813em;
-      margin: 0 auto 1em;
-    }
-  }
-  figure {
-    margin: 3em auto;
-    width: 2em;
-    height: 2em;
-  }
-  ul {
-    list-style-type:disc;
     width: 55%;
-    margin: 0 auto 1em;;
-    li {
-     font-size: 0.813em;
-      margin: 0 0 0 2em;
-      color: $darkertype;
-      line-height: 1.25em;
-    }
+    margin: 0 auto 2em;
+    color: $typegray;
+    font-family: $serif;
+    @include aa-text;
   }
 }
 
