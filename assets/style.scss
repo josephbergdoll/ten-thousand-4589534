@@ -171,10 +171,10 @@ h2 {
 
 h3 {
   font-size: 0.875em;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  @include aa-text;
+  /*@include aa-text;*/
 }
 
 h4 {
@@ -196,7 +196,7 @@ a.logo {
   display: block;
   width: 18em;
   height: 2.25em;
-  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/tenthoulogo_lg.png?8600) no-repeat center center;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/tenthoulogo_lg.png?9523) no-repeat center center;
   background-size: 100%;
   text-indent: -9999px;
   float: left;
@@ -209,7 +209,7 @@ a.logo {
 a.btn {
   display: table;
   color: white;
-  background-color: $purple;
+  background-color: $black;
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: 600;
@@ -219,14 +219,14 @@ a.btn {
   cursor: pointer;
   @include aa-text;
   &:hover {
-    background: $black;
+    background: $purple;
   }
 }
 
 article {
-  width: 66em;
+  width: 63em;
   margin: 0 auto;
-  padding: 3em 3em;
+  padding: 3em 1.5em;
 }
 
 section,header,footer {
@@ -250,6 +250,8 @@ a.to-top {
   z-index: 100;
   opacity: 1;
   color: $typegray;
+  transition: right 0.15s ease-out;
+-webkit-transition: right 0.15s ease-out;
   &:hover {
     background: $almostblack;
     color: $white;
@@ -257,10 +259,6 @@ a.to-top {
   &.slideright {
     right: 0;
   }
-  
-transition: right 0.15s ease-out;
--webkit-transition: right 0.15s ease-out;
-  
 }
 /*
 .index-header {
@@ -358,7 +356,7 @@ div.closebtn {
   display: none;
   top: -2px;
   left: -2px;
-  background: $black url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?8600) no-repeat center center;
+  background: $black url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?9523) no-repeat center center;
   width: 1.95em;
   border-radius: 1em;
   height: 1.95em;
@@ -380,7 +378,7 @@ div.closebtn {
 footer {
   padding: 1em 3em 5em;
   text-transform: uppercase;
-  background: white url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/xlogo.png?8600) no-repeat center 8.35em;
+  background: white url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/xlogo.png?9523) no-repeat center 8.35em;
   background-size: 20px 20px;
 }
 
@@ -499,16 +497,16 @@ div.slideshow {
 
 .slides {
   li.one {
-    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/startmovement.jpg?8600) center bottom;
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/startmovement.jpg?9523) center bottom;
   }
   li.two {
-   background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/falls.jpg?8600) center top;
+   background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/falls.jpg?9523) center top;
   }
   li.three {
-    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridgerun.jpg?8600) center center;
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridgerun.jpg?9523) center center;
   }
   li.four {
-    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/loop.jpg?8600) center center;
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/loop.jpg?9523) center center;
   }
 }
 
@@ -671,7 +669,6 @@ section.homepage aside.third {
       text-align: center;
       margin: 0 0 2.25em 0;
       color: $typegray;
-      @include aa-text;
     }
     p {
       font-size: 0.875em;
@@ -763,7 +760,7 @@ section.mainproduct {
   border-radius: 2em;
   border: 2px solid $black;
   opacity: 0.25;
-  background: transparent url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/zoombtn_k.svg?8600) center center no-repeat;
+  background: transparent url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/zoombtn_k.svg?9523) center center no-repeat;
   background-size: 75% 75%;
   z-index: 3;
   cursor: pointer;
@@ -808,7 +805,7 @@ h1.title {
 
 section.product-actionshots {
   height: 40em;
-  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/actionshot.jpg?8600) no-repeat;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/actionshot.jpg?9523) no-repeat;
   background-size: cover;
   position: relative;
   padding: 17em 0 0 0;
@@ -849,7 +846,7 @@ select {
   width: 100%;
   display: block;
   border-radius: 0;
-  background: $strokegray url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/arrow.png?8600) 93% center no-repeat;
+  background: $strokegray url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/arrow.png?9523) 93% center no-repeat;
   background-size: 12px 12px;
   padding: 1em;
   font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -1058,8 +1055,8 @@ section.productexplore a {
   color: white;
 
   .quantity-stepper {
-    color: darken($white, 35%);
-    padding: 10px;
+    color: $linkgray;
+    padding: 5px;
 
     &:hover { color: $white; }
   }
@@ -1079,6 +1076,9 @@ section.cart-disp-empty {
      }
      p {
        margin: 0.5em 0 0 0;
+       letter-spacing: 0.1em;
+       text-transform: uppercase;
+       font-size: 0.875em;
      }
      a {
        color: $darkertype;
@@ -1119,7 +1119,7 @@ table.shopcart {
 
   thead {
     font-size: 75%;
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 0.1em;
   }
 
@@ -1135,6 +1135,9 @@ table.shopcart {
     padding: 20px 0;
     &.sm {
       padding: 10px 0;
+      color: $linkgray;
+      font-weight: 400;
+      letter-spacing: 0.1em;
     }
   }
 
@@ -1145,7 +1148,7 @@ table.shopcart {
     border-radius: 1em;
     height: 1.1em;
     margin: 0 auto;
-    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?8600) center center no-repeat;
+    background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/closebtn_w.svg?9523) center center no-repeat;
     &:hover {
       background-color: $almostblack;
     }
@@ -1261,17 +1264,17 @@ section.mission {
 }
 
 .mission-one {
-  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?8600) no-repeat center 30%;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?9523) no-repeat center 30%;
   height: 40em !important;
 }
 
 .mission-two {
-  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?8600) no-repeat center 85%;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?9523) no-repeat center 85%;
 }
 
 
 .mission-three {
-  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge7.jpg?8600) no-repeat center 30%;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge7.jpg?9523) no-repeat center 30%;
 }
 
 .mission-hero {
@@ -1324,6 +1327,54 @@ padding: 2em 3em;
   margin: 0 auto 1em;
 }
 
+.values-list {
+  width: 92%;
+  font-weight: 700;
+  margin: 2em auto;
+  font-weight: 300;
+  padding: 0 0 0 2em;
+}
+
+.values-list li {
+  margin: 0 auto 2.625em auto;
+  padding: 0 0 0.5em;
+  display: table;
+  color: $typegray;
+  border-bottom: 1px solid $strokegray;
+  text-align: center;
+}
+
+.values-list li:last-child {
+  margin: 0 auto !important;
+}
+
+.values-list li figure {
+  display: inline-block;
+  border: 2px solid $typegray;
+    text-indent: 1px;
+    height: 2em;
+    width: 2em;
+    font-size: 65%;
+    line-height: 1.7em;
+    text-align: center;
+    border-radius: 2em;
+    margin: -0.5em 0 0 0;
+    color: $typegray;
+    font-weight: 700;
+    position: relative;
+    top: -6px;
+}
+
+.values-list li span{
+  font-family: $serif;
+  font-size: 2em;
+  color: $darkertype;
+  @include aa-text;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0 0 0 0.25em;
+}
+
 .mission-highlight-img, .mission-highlight-img-2, .mission-highlight-copy {
   width: 50%;
   float: left;
@@ -1335,12 +1386,12 @@ padding: 2em 3em;
 }
 
 .mission-highlight-img {
-  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?8600) no-repeat center center;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge4.jpg?9523) no-repeat center center;
   background-size: cover;
 }
 
 .mission-highlight-img-2 {
-  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?8600) no-repeat center center;
+  background: url(//cdn.shopify.com/s/files/1/0251/7377/t/1/assets/bridge6.jpg?9523) no-repeat center center;
   background-size: cover;
 }
 
@@ -1366,47 +1417,19 @@ padding: 2em 3em;
 // Begin Static Page Styles
 
 section.static-copy {
-  border-top: 1px solid $strokegray;
+  article {
+    border-top: 1px solid $strokegray;
+  }
   h1 {
     text-align: center;
-    margin: 0 auto 2em;
-  }
-  h4 {
-     font-weight: 600;
-     position: relative;
-     margin: 4em 0 -1.35em 0;
-     color: $darkertype;
-     width: 20%;
-     line-height: 1.25em;
-   &.sub {
-    width: 55%;
-    margin: 1em auto 0.25em;
-    }
+    margin: 0 auto 1.5em;
   }
   p {
-  width: 55%;
-  margin: 0 auto 2em;
-  color: $darkertype;
-    &.secondary {
-      font-size: 0.813em;
-      margin: 0 auto 1em;
-    }
-  }
-  figure {
-    margin: 3em auto;
-    width: 2em;
-    height: 2em;
-  }
-  ul {
-    list-style-type:disc;
     width: 55%;
-    margin: 0 auto 1em;;
-    li {
-     font-size: 0.813em;
-      margin: 0 0 0 2em;
-      color: $darkertype;
-      line-height: 1.25em;
-    }
+    margin: 0 auto 2em;
+    color: $typegray;
+    font-family: $serif;
+    @include aa-text;
   }
 }
 

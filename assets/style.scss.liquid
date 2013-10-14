@@ -35,7 +35,6 @@ body, html {
 
 html {
   height: 100%;
-  background: $altgray;
   }
 
 body {
@@ -116,7 +115,7 @@ a {
 }
 
 .purple {
-  color: $purple !important;
+  color: $darkertype !important;
 }
 
 .white {
@@ -192,6 +191,10 @@ p {
   line-height: 1.5em;
 }
 
+span.darkertype {
+  color: $darkertype;
+}
+
 a.logo {
   display: block;
   width: 18em;
@@ -207,26 +210,24 @@ a.logo {
 }
 
 a.btn {
-  display: table;
-  color: white;
-  background-color: $black;
+  color: $black;
   text-transform: uppercase;
+  padding: 0 0 0.5em 0;
   font-size: 0.75em;
   font-weight: 600;
   letter-spacing: 0.1em;
-  padding: 0.9em 2em 1em;
   margin: 0 auto;
   cursor: pointer;
   @include aa-text;
   &:hover {
-    background: $purple;
+    color: $linkgray;
   }
 }
 
 article {
-  width: 63em;
+  width: 60em;
   margin: 0 auto;
-  padding: 3em 1.5em;
+  padding: 3em 0em;
 }
 
 section,header,footer {
@@ -280,8 +281,9 @@ header {
 }
 
 header article {
-  padding: 4em 1.5em;
+  padding: 4em 0em;
 }
+
 
 header nav {
   font-size: 0.875em;
@@ -377,13 +379,13 @@ div.closebtn {
 footer {
   padding: 1em 3em 5em;
   text-transform: uppercase;
-  background: white url({{ 'xlogo.png' | asset_url }}) no-repeat center 8.35em;
-  background-size: 20px 20px;
+  background: white url(http://osephj.com/varsity/10k/img/xlogo.png) no-repeat center 7.45em;
+  background-size: 16px 16px;
 }
 
 footer article {
-    padding: 1.5em 1.5em 4em;
-    width: 63em;
+    padding: 1.5em 0em 4em;
+    width: 60em;
     border-top: 1px solid $strokegray;
 }
 
@@ -391,8 +393,9 @@ footer article {
 footer nav {
   text-align: center;
 }
+
 footer nav a {
-    font-size: 0.875em;
+    font-size: 0.7em;
     letter-spacing: 0.1em;
     font-weight: 300;
     color: $typegray;
@@ -405,16 +408,16 @@ footer nav a {
 
 footer ul li {
   display: inline-block;
-  margin: 0 2.35rem 0 0;
+  margin: 0 1.5rem 0 0;
 }
 
 footer nav ul li:last-child {
   margin: 0;
 }
   
-footer  h5 {
-    margin: 1.5em 0 0 0;
-    font-size: 0.875em;
+footer h5 {
+    margin: 1.85em 0 0 0;
+    font-size: 0.7em;
     letter-spacing: 0.1em;
     font-weight: 300;
     color: $typegray;
@@ -649,31 +652,39 @@ aside.third {
 section.homepage {
   background: $white;
   article {
-    padding: 4em 3em;
+    padding: 4em 0em;
+    width: 60em;
+    overflow: hidden;
   }
 }
 
 section.homepage aside.third {
     height: 21em;
-    padding: 3em 3em;
+    padding: 3em 3.5em;
+    width: 22em !important;
     border-right: 1px solid $strokegray;
+    &:nth-child(1) {
+      width: 19em !important;
+      padding: 3em 3em 3em 0 !important;
+    }
     &:nth-child(3) {
-    border-right: none;
+      border-right: none;
+      width: 19em !important;
+      padding: 3em 0 3em 3em !important;
     }
     h2 {
       text-align: center;
       margin: 1em 0 0em 0;
     }
     h3 {
-      text-align: center;
+      text-align: left;
       margin: 0 0 2.25em 0;
       color: $typegray;
     }
     p {
       font-size: 0.875em;
-      text-align: center;
       line-height: 1.5em;
-      margin: 2em 0 3em 0;
+      margin: 2em 0 2.25em 0;
       font-family: $serif;
       @include aa-text;
     }
@@ -687,7 +698,6 @@ section.homepage aside.third {
 
 section.products article {
   border-top: 1px solid $strokegray;
-  padding: 0 3em;
 }
 
 section.products a.product {
@@ -877,7 +887,7 @@ section.mainproduct select {
       letter-spacing: 1px;
       cursor: pointer;
       &:hover {
-        background: $purple;
+        background: $darkertype;
       }
       &.centered {
           width: 13rem;
@@ -1200,7 +1210,7 @@ table.shopcart {
       letter-spacing: 0.2em;
       font-size: 0.813em;
       &:hover {
-        background-color: $purple;
+        background-color: $darkertype;
         cursor: pointer;
       }
 
@@ -1367,7 +1377,6 @@ padding: 2em 3em;
 .values-list li span{
   font-family: $serif;
   font-size: 2em;
-  color: $darkertype;
   @include aa-text;
   font-style: italic;
   font-weight: normal;
@@ -1409,7 +1418,7 @@ padding: 2em 3em;
 
 
 
-// End Missoin Page Styles
+// End Mission Page Styles
 
 
 
