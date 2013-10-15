@@ -377,9 +377,9 @@ div.closebtn {
 // Begin Footer Styles
 
 footer {
-  padding: 1em 3em 5em;
+  padding: 0 3em 5em;
   text-transform: uppercase;
-  background: white url(http://osephj.com/varsity/10k/img/xlogo.png) no-repeat center 7.45em;
+  background: white url(http://osephj.com/varsity/10k/img/xlogo.png) no-repeat center 7em;
   background-size: 16px 16px;
 }
 
@@ -836,6 +836,8 @@ section.mainproduct p {
 }
 
 section.mainproduct ul {
+  padding: 0 0 0 1em;
+  margin: 1.5em 0 0 0;
   list-style-type: disc;
   font-size: 0.875em;
   font-family: $serif;
@@ -1083,17 +1085,19 @@ section.cart-disp-empty {
        font-weight: 300;
        letter-spacing: 0.2em;
      }
-     p {
-       margin: 0.5em 0 0 0;
-       letter-spacing: 0.1em;
-       text-transform: uppercase;
-       font-size: 0.875em;
-     }
      a {
-       color: $darkertype;
-       &:hover {
-         color:white;
-       }
+        margin: 2em auto 0;
+        color: black;
+        background: white;
+        padding: 1em 3em;
+        display: inline-block;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 0.75em;
+        &:hover {
+          opacity:0.75;
+        }
      }
 
 }
@@ -1299,10 +1303,13 @@ section.copy {
   background: white;
   p {
     font-family: "ff-meta-serif-web-pro";
-      font-size: 1.05em;
+      font-size: 0.933em;
       text-align: left;
-      line-height: 1.625em;
+      line-height: 1.9em;
       @include aa-text;
+      &:last-child {
+        margin: 0 auto !important;
+      }
   }
 }
 
@@ -1333,7 +1340,7 @@ padding: 2em 3em;
 
 .p-single-col {
   width: 55%;
-  margin: 0 auto 1em;
+  margin: 0 auto 1.35em;
 }
 
 .values-list {
@@ -1342,15 +1349,20 @@ padding: 2em 3em;
   margin: 2em auto;
   font-weight: 300;
   padding: 0 0 0 2em;
+  text-align: center;
 }
 
 .values-list li {
-  margin: 0 auto 2.625em auto;
+  margin: 0 auto 2.45em auto;
   padding: 0 0 0.5em;
-  display: table;
-  color: $typegray;
-  border-bottom: 1px solid $strokegray;
-  text-align: center;
+  display: block;
+  width: 100%;
+  color: $darkertype;
+}
+
+.values-list li:after {
+  display: block;
+  content: " ";
 }
 
 .values-list li:last-child {
@@ -1358,16 +1370,15 @@ padding: 2em 3em;
 }
 
 .values-list li figure {
-  display: inline-block;
+  display: block;
   border: 2px solid $typegray;
-    text-indent: 1px;
     height: 2em;
     width: 2em;
     font-size: 65%;
     line-height: 1.7em;
     text-align: center;
     border-radius: 2em;
-    margin: -0.5em 0 0 0;
+    margin: 0 auto;
     color: $typegray;
     font-weight: 700;
     position: relative;
@@ -1375,12 +1386,13 @@ padding: 2em 3em;
 }
 
 .values-list li span{
+  display: block;
+  margin: -0.25em 0 0 0;
   font-family: $serif;
-  font-size: 2em;
+  font-size: 1.625em;
   @include aa-text;
-  font-style: italic;
   font-weight: normal;
-  margin: 0 0 0 0.25em;
+  font-style:italic;
 }
 
 .mission-highlight-img, .mission-highlight-img-2, .mission-highlight-copy {

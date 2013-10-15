@@ -24,31 +24,6 @@
     </aside>
   </article>
 
-  {% capture product_action_shot_image %}{{ product.handle }}-actionshot.jpg{% endcapture %}
-  <section class="product-actionshots" style="background-image: url({{ product_action_shot_image | asset_url }})">
-  <h1 class="action-desc">{{ product.metafields.actionshot.description }}</h1>
-</section>
-
-<section id="features" class="productfeature product-details">
-  <article>
-  <h2 class="product-subhead">Product Details</h2>
-    <ul class="details-list clearfix">
-      <li>Ripstop stitching</li>
-      <li>Heavy duty zippers</li>
-      <li>Lightweight polyester shell</li>
-      <li>Waterproof</li>
-      <li>Ripstop stitching</li>
-      <li>Heavy duty zippers</li>
-      <li>Lightweight polyester shell</li>
-      <li>Waterproof</li>
-      <li>Heavy duty zippers</li>
-      <li>Lightweight polyester shell</li>
-      <li>Waterproof</li>
-      
-    </ul>
-  </article>
-</section>
-
 
 </section>
 
@@ -62,29 +37,3 @@
   </section>
   {% endfor %}
 </div>
-
-<section class="productexplore">
-
-  <article>
-  <h2 class="product-subhead">More to Explore</h2>
-    <aside class="third">
-      <a href="#"> <figure>{{ 'shorts.png' | asset_url | img_tag }}</figure>
-      <h3>Board Short</h3></a>
-    </aside>
-    <aside class="third">
-      <a href="#"> <figure>{{ 'shorts.png' | asset_url | img_tag }}</figure>
-      <h3>Board Short</h3></a>
-    </aside>
-    <aside class="third">
-      <a href="#"> <figure>{{ 'shorts.png' | asset_url | img_tag }}</figure>
-      <h3>Board Short</h3></a>
-    </aside>
-
-    <div class="clear"></div>
-  </article>
-
-</section>
-
-<a class="scroll to-top" href="#top">
-Back To Top
-</a>
