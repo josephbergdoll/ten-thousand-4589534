@@ -52,11 +52,6 @@ var initColorVarientChanger = function () {
     var value = $(e.currentTarget).val();
     $('.slider-nav').find('[alt="' + value + '"]').trigger('click');
   });
-
-  $('.slider-nav').on('click', 'img', function (e) {
-    var alt = $(e.currentTarget).prop('alt');
-    $('#product-select-option-0').val(alt);
-  });
 };
 
 $(function() {
@@ -64,9 +59,9 @@ $(function() {
   initSlideShow();
   initColorVarientChanger();
 
-  $('.zoombtn').on('click', function () {
-    $('.productfeature')[0].scrollIntoView();
-  });
+  $('.zoombtn').click(function () {
+    $(this).closest('.mainproduct').toggleClass('zoomyzoom');
+    });
 });
 
 /* New Add to Cart Animatino */

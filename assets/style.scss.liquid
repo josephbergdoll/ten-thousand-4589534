@@ -1,7 +1,5 @@
 /* Ten Thousand */
 
-@import "reset.css";
-
 /* Variables */
 
 $white: white;
@@ -23,6 +21,67 @@ $serif: "ff-meta-serif-web-pro", "Times New Roman", Times, serif;
 
 @mixin aa-text {
   -webkit-font-smoothing: antialiased;
+}
+
+a,h1,h2,h3,h4,h5,span,.checkout {
+  transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -webkit-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -moz-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  -o-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
+  &:hover {
+      transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -webkit-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -moz-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    -o-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
+    }
+}
+
+.mainproduct.zoomyzoom {
+  .productdesc {
+    opacity: 0;
+    height: 0;
+    -webkit-transition: opacity 500ms ease-in;
+    -moz-transition: opacity 500ms ease-in;
+    -o-transition: opacity 500ms ease-in;
+    transition: opacity 500ms ease-in;
+  }
+  .product-imgs {
+    width: 100% !important;
+    margin: 0 !important;
+    -webkit-transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
+    -moz-transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
+    -o-transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
+    transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
+  }
+  .zoombtn {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotateX(45deg);
+    -o-transform: rotateX(45deg);
+    transform: rotateX(45deg);
+    border: 0px solid transparent;
+    background-size: 100% 100%;
+  }
+}
+
+.productdesc {
+  -webkit-transition: opacity 500ms ease-in 1s;
+  -moz-transition: opacity 500ms ease-in 1s;
+  -o-transition: opacity 500ms ease-in 1s;
+  transition: opacity 500ms ease-in 1s;
+}
+
+.product-imgs {
+  -webkit-transition: width 550ms ease-in, margin 0s ease-in;
+  -moz-transition: width 550ms ease-in, margin 0s ease-in;
+  -o-transition: width 550ms ease-in, margin 0s ease-in;
+  transition: width 550ms ease-in, margin 0s ease-in;
+}
+
+.zoombtn {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out 0.3s, background-size 1s ease-in-out 0.5s, border 0.25s ease-in;
+  -moz-transition: -moz-transform 0.25s ease-in-out 0.3s, background-size 1s ease-in-out 0.5s, border 0.25s ease-in;
+  -o-transition: -o-transform 0.25s ease-in-out 0.3s, background-size 1s ease-in-out 0.5s, border 0.25s ease-in;
+  transition: transform 0.25s ease-in-out 0.3s, background-size 1s ease-in-out 0.5s, border 0.5s ease-in;
 }
 
 /* Base Styles */
@@ -75,20 +134,6 @@ ul {
 img {
   max-width: 100%;
   height: auto;
-}
-
-
-a,h1,h2,h3,h4,h5,span {
-  transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
-  -webkit-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
-  -moz-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
-  -o-transition: color 0.35s ease-in, opacity 0.35s ease-in, background-color 0.35s ease-in;
-  &:hover {
-      transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
-    -webkit-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
-    -moz-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
-    -o-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
-    }
 }
 
 a.current {
@@ -324,6 +369,7 @@ span.cart {
     width: 2em;
     font-size: 90%;
     line-height: 1.7em;
+    letter-spacing: 0 !important;
     text-align: center;
     border-radius: 2em;
     margin: 0 0 0 0.5em;
@@ -379,7 +425,7 @@ div.closebtn {
 footer {
   padding: 0 3em 5em;
   text-transform: uppercase;
-  background: white url(http://osephj.com/varsity/10k/img/xlogo.png) no-repeat center 7em;
+  background: white url({{ 'xlogo.png' | asset_url }}) no-repeat center 7em;
   background-size: 16px 16px;
 }
 
@@ -756,14 +802,14 @@ text-align: center;
 
 section.mainproduct {
   background: $lightgray;
-  border-bottom: 1px solid $strokegray;
+  /*border-bottom: 1px solid $strokegray;*/
 }
 
 .zoombtn {
   text-indent: -9999px;
   position: absolute;
   top: 1em;
-  right: 0;
+  right: 1em;
   width: 1.25em;
   height: 1.25em;
   border-radius: 2em;
@@ -783,20 +829,24 @@ aside.product-imgs {
   margin: 0 8% 0 0;
   float: left;
   position: relative;
+  ul {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
+
 
 ol.slider-nav {
   display: table;
-  margin: 0 auto;
+  margin: 0.5em auto 0;
   li {
     display: block;
     cursor: pointer;
-    width: 7em;
-    width: 7em;
+    height:5em;
+    width: 5em;
     float: left;
-    padding: 1em;
-    border: 1px solid $strokegray;
-    margin: 0 0.5em 0 0;
+    padding: 0.35em;
+    margin: 0 0.5em 0.5em 0;
     &:hover {
       border: 1px solid $typegray;
     }
@@ -906,6 +956,10 @@ section.mainproduct select {
 
     }
 
+.productspotlights article {
+  padding: 3em 0 0;
+}
+
 section.productspotlights  aside.third {
 padding: 3em 3em;
     width: 22em !important;
@@ -923,6 +977,10 @@ padding: 3em 3em;
       line-height: 1.5em;
     }
 }
+
+
+
+
 
 .productdesc p, .productspotlights p, .productfeature p {
   font-family: $serif;
@@ -1049,7 +1107,7 @@ section.productexplore a {
 
 section.cart-disp-empty {
      article {
-      padding: 8em 3em;
+      padding: 8em 0em;
       position: relative;
       text-align: center;
      }
@@ -1079,7 +1137,7 @@ section.cart-disp-empty {
 
 section.cart-disp-full {
   article {
-    padding: 3em 3em 4em;
+    padding: 3em 0em 4em;
     position: relative;
     * {
       box-sizing: content-box;
@@ -1157,17 +1215,20 @@ table.shopcart {
     width: 20em;
     float: left;
     box-sizing: border-box !important;
-    padding: 0.625em 0 0 3em;
+    padding: 0.625em 0 0;
     text-align: center;
     * {
       box-sizing: border-box;
     }
     h3 {
+      font-size: 75%;
+      font-weight: 300;
+      letter-spacing: 0.1em;
       color: $linkgray;
     }
     h2 {
-      margin: 0.25em auto 0.75em;
-      font-size: 2.25em;
+      margin: 0.35em auto 0.75em;
+      font-size: 2.5em;
       padding: 0 0 0.15em;
       display: table;
       border-bottom: 2px solid white;
@@ -1179,7 +1240,7 @@ table.shopcart {
       display: table;
       margin: 0 auto;
       color: white;
-      background: $darkertype;
+      background: $linkgray;
       padding: 1em 3em 1.15em;
       text-transform: uppercase;
       font-weight: 500;
