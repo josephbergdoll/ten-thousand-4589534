@@ -660,7 +660,7 @@ section.homepage {
 
 section.homepage aside.third {
     height: 21em;
-    padding: 3em 3.5em;
+    padding: 3em 3em;
     width: 22em !important;
     border-right: 1px solid $strokegray;
     &:nth-child(1) {
@@ -779,8 +779,8 @@ section.mainproduct {
 }
 
 aside.product-imgs {
-  width: 50%;
-  margin: 0 12% 0 0;
+  width: 58%;
+  margin: 0 8% 0 0;
   float: left;
   position: relative;
 }
@@ -880,7 +880,7 @@ section.mainproduct select {
       color: white;
       background: $black;
       border: 0;
-      padding: 2em;
+      padding: 1.5em 2em;
       font-family: "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
       text-transform: uppercase;
       font-weight: 500;
@@ -907,9 +907,15 @@ section.mainproduct select {
     }
 
 section.productspotlights  aside.third {
-    padding: 0 3em;
-    h3 {
-      text-align: center;
+padding: 3em 3em;
+    width: 22em !important;
+    &:nth-child(1) {
+      width: 19em !important;
+      padding: 3em 3em 3em 0 !important;
+    }
+    &:nth-child(3) {
+      width: 19em !important;
+      padding: 3em 0 3em 3em !important;
     }
     p {
       margin: 1em 0;
@@ -923,45 +929,16 @@ section.productspotlights  aside.third {
   @include aa-text;
 }
 
-h2.product-subhead {
-    text-align: center;
-    color: $typegray;
-    font-weight: 300;
-    margin: 0 0 1.75em 0;
-    font-size: 125%;
-}
-
-.details-list {
-  display: table;
-  margin: 3em auto 0 auto;
-  color: $typegray;
-  padding: 2em 0;
-  border-top: 1px solid $strokegray;
-  border-bottom: 1px solid $strokegray;
-  li {
-    display: list-item;
-    padding: 1em 1em;
-    font-size: 0.875em;
-    font-family: $serif;
-     background: $lightgray;
-     @include aa-text;
-    width: 25em;
-    float: left;
-    margin: 0.5em 0 0;
-    position: relative;
-  }
-}
-
 .details-list li:nth-child(odd) {
   clear: both;
   margin: 0.5em 3em 0 0;
 }
 
-figure.spotlight-img {
-  width: 14em;
-  height: 14em;
-  margin: 0 auto 2em;
-  border-radius: 7em;
+.spotlight-img {
+  width: 16em;
+  height: 16em;
+  margin: 0 auto 1em;
+  border-radius: 8em;
   overflow: hidden;
   img {
     max-width: 150%;
@@ -972,7 +949,6 @@ figure.spotlight-img {
 
 section.productfeature {
   article {
-    padding: 5em 3em;
   }
   img {
     width: 100%;
@@ -991,10 +967,6 @@ section.productfeature {
     }
   }
 }
-
-section.productfeature article {
-    display: table;
-  }
 
 section.productfeature  aside.third {
   text-align: center;
