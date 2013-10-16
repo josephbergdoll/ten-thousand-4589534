@@ -59,12 +59,6 @@ $(".scroll").click(function(event){
   });
   
   
- $('#features').waypoint({
-    handler: function(event, direction) {
-        $('a.to-top').toggleClass("slideright", direction == 'down')
-      }
-  });
-  
   $('#selectcolorsize').click(function(){
   setTimeout(function() {
     $('#color').focus();},1250);

@@ -315,7 +315,7 @@ body {
 }
 
 #cost {
-  color: rgba(120,68,133,1);
+  color: rgba(0,0,0,1);
   font: 2em "ars-maquette-web", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: 300;
   width: 100%;

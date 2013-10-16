@@ -33,25 +33,25 @@ a,h1,h2,h3,h4,h5,span,.checkout {
     -webkit-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
     -moz-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
     -o-transition: color 0.15s ease-in, opacity 0.15s ease-in, background-color 0.15s ease-in;
-    }
+  }
 }
 
 .mainproduct.zoomyzoom {
   .productdesc {
     opacity: 0;
     height: 0;
-    -webkit-transition: opacity 500ms ease-in;
-    -moz-transition: opacity 500ms ease-in;
-    -o-transition: opacity 500ms ease-in;
-    transition: opacity 500ms ease-in;
+    -webkit-transition: opacity 100ms ease-in;
+    -moz-transition: opacity 100ms ease-in;
+    -o-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
   }
   .product-imgs {
     width: 100% !important;
     margin: 0 !important;
-    -webkit-transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
-    -moz-transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
-    -o-transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
-    transition: width 500ms ease-in-out 0.75s, margin 0s ease-in 0.75s;
+    -webkit-transition: width 400ms ease-in-out 0.5s, margin 0s ease-in 0.5s;
+    -moz-transition: width 400ms ease-in-out 0.5s, margin 0s ease-in 0.5s;
+    -o-transition: width 400ms ease-in-out 0.5s, margin 0s ease-in 0.5s;
+    transition: width 400ms ease-in-out 0.5s, margin 0s ease-in 0.5s;
   }
   .zoombtn {
     -webkit-transform: rotate(45deg);
@@ -64,17 +64,17 @@ a,h1,h2,h3,h4,h5,span,.checkout {
 }
 
 .productdesc {
-  -webkit-transition: opacity 500ms ease-in 1s;
-  -moz-transition: opacity 500ms ease-in 1s;
-  -o-transition: opacity 500ms ease-in 1s;
-  transition: opacity 500ms ease-in 1s;
+  -webkit-transition: opacity 500ms ease-in 0.5s;
+  -moz-transition: opacity 500ms ease-in 0.5s;
+  -o-transition: opacity 500ms ease-in 0.5s;
+  transition: opacity 500ms ease-in 0.5s;
 }
 
 .product-imgs {
-  -webkit-transition: width 550ms ease-in, margin 0s ease-in;
-  -moz-transition: width 550ms ease-in, margin 0s ease-in;
-  -o-transition: width 550ms ease-in, margin 0s ease-in;
-  transition: width 550ms ease-in, margin 0s ease-in;
+  -webkit-transition: width 250ms ease-in-out, margin 0s ease-in;
+  -moz-transition: width 250ms ease-in-out, margin 0s ease-in;
+  -o-transition: width 250ms ease-in-out, margin 0s ease-in;
+  transition: width 250ms ease-in-out, margin 0s ease-in;
 }
 
 .zoombtn {
@@ -364,7 +364,7 @@ span.cart {
    display: inline-block;
     background-color: /*$purple*/ transparent;
     border: 2px solid $linkgray;
-    text-indent: 1px;
+    text-indent: 0px;
     height: 2em;
     width: 2em;
     font-size: 90%;
@@ -713,6 +713,11 @@ section.homepage aside.third {
       width: 19em !important;
       padding: 3em 3em 3em 0 !important;
     }
+    &:nth-child(2){
+      h3 {
+        margin: 0 0 1em 0 !important;
+      }
+    }
     &:nth-child(3) {
       border-right: none;
       width: 19em !important;
@@ -848,7 +853,7 @@ ol.slider-nav {
     padding: 0.35em;
     margin: 0 0.5em 0.5em 0;
     &:hover {
-      border: 1px solid $typegray;
+      opacity: 0.65;
     }
     img {
       margin: 0 auto;
@@ -1116,7 +1121,7 @@ section.cart-disp-empty {
        letter-spacing: 0.2em;
      }
      a {
-        margin: 2em auto 0;
+        margin: 3em auto 0;
         color: black;
         background: white;
         padding: 1em 3em;
@@ -1452,11 +1457,9 @@ padding: 2em 3em;
 
 .mission-highlight-copy {
   padding: 3em;
-  h1 {
-    text-transform: none;
-    letter-spacing: normal;
-    font-size: 1.05em;
-    font-weight: 500;
+  h3 {
+    font-weight: 700;
+    letter-spacing: 0.1em;
     margin: 0 0 0.5em;
   }
 }

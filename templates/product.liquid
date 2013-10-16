@@ -31,7 +31,7 @@
   {% for i in (1..product.metafields.feature_images.count) %}
   <section class="productfeature">
     <article>
-      {% capture feature_image %}{{ product.handle }}-feature-{{i}}.png{% endcapture %}
+      {% capture feature_image %}{{ product.handle }}-feature-{{i}}.jpg{% endcapture %}
       {{ feature_image | asset_url | img_tag }}
     </article>
   </section>

@@ -47,9 +47,15 @@ var initSlideShow = function() {
   });
 };
 
+var showSelectedColorThumbs = function (color) {
+  color = (color || $('#product-select-option-0').val());
+  $('ol.slider-nav').find('li').hide().find('[alt="'+color+'"]').closest('li').css({ display: 'block' });
+};
+
 var initColorVarientChanger = function () {
   $('#add-product-form').on('change', '#product-select-option-0', function (e) {
     var value = $(e.currentTarget).val();
+    showSelectedColorThumbs(value);
     $('.slider-nav').find('[alt="' + value + '"]').trigger('click');
   });
 };
@@ -58,6 +64,7 @@ $(function() {
   initMultiSelector();
   initSlideShow();
   initColorVarientChanger();
+  showSelectedColorThumbs();
 
   $('.zoombtn').click(function () {
     $(this).closest('.mainproduct').toggleClass('zoomyzoom');
